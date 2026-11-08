@@ -1,0 +1,2907 @@
+[
+  {
+    "name": "aead",
+    "version": "0.6.1",
+    "checksum": "1973cfbc1a2daf9cf550e74e1f088c28e7f7d8c1e1418fb6c9dc5184b7e84c99",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/aead-0.6.1/LICENSE-APACHE",
+      "cargo/aead-0.6.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "aes",
+    "version": "0.9.4",
+    "checksum": "fc0fc36d7440d015b45468ba08a21e80e056ebbd014c611c6298bb7503e04bd1",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/block-ciphers",
+    "notices": [
+      "cargo/aes-0.9.4/LICENSE-APACHE",
+      "cargo/aes-0.9.4/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "aes-gcm",
+    "version": "0.11.1",
+    "checksum": "7f2b8006a0c83f52b62ba44a97b58bf76fe2f70a329e588f67f89691d93d498f",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/AEADs",
+    "notices": [
+      "cargo/aes-gcm-0.11.1/LICENSE-APACHE",
+      "cargo/aes-gcm-0.11.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "android_system_properties",
+    "version": "0.1.6",
+    "checksum": "ae221649c9976a6f6c56ae1facf410f3ddb33cc661c4b7b61020a912d4237fbc",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Nicolas Silva <nical@fastmail.com>"
+    ],
+    "repository": "https://github.com/nical/android_system_properties",
+    "notices": [
+      "cargo/android_system_properties-0.1.6/LICENSE-APACHE",
+      "cargo/android_system_properties-0.1.6/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "argon2",
+    "version": "0.6.0",
+    "checksum": "134c52ddac6d63c576bef8168db10c83c49c26444ecbc68060fef078925a901c",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/password-hashes",
+    "notices": [
+      "cargo/argon2-0.6.0/LICENSE-APACHE",
+      "cargo/argon2-0.6.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "autocfg",
+    "version": "1.5.1",
+    "checksum": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "Josh Stone <cuviper@gmail.com>"
+    ],
+    "repository": "https://github.com/cuviper/autocfg",
+    "notices": [
+      "cargo/autocfg-1.5.1/LICENSE-APACHE",
+      "cargo/autocfg-1.5.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "base16ct",
+    "version": "1.0.0",
+    "checksum": "fd307490d624467aa6f74b0eabb77633d1f758a7b25f12bceb0b22e08d9726f6",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/base16ct-1.0.0/LICENSE-APACHE",
+      "cargo/base16ct-1.0.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "base64ct",
+    "version": "1.8.3",
+    "checksum": "2af50177e190e07a26ab74f8b1efbfe2ef87da2116221318cb1c2e82baf7de06",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/base64ct-1.8.3/LICENSE-APACHE",
+      "cargo/base64ct-1.8.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "bcrypt-pbkdf",
+    "version": "0.11.0",
+    "checksum": "144e573728da132683b9488acd528274c790e07fc06ff81ee29f9d8f8b1041e0",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/password-hashes",
+    "notices": [
+      "cargo/bcrypt-pbkdf-0.11.0/LICENSE-APACHE",
+      "cargo/bcrypt-pbkdf-0.11.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "bitflags",
+    "version": "2.13.2",
+    "checksum": "3ded4057c258ba199e2d26386d3af3780957ecaee6c4ef4041c6b4b8b97c0b06",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rust Project Developers"
+    ],
+    "repository": "https://github.com/bitflags/bitflags",
+    "notices": [
+      "cargo/bitflags-2.13.2/LICENSE-APACHE",
+      "cargo/bitflags-2.13.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "blake2",
+    "version": "0.11.0",
+    "checksum": "5b5d4d889834ee8ecfc0f8426ad30faf7cdcb10f741a8e6d7224d95325479f6f",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/hashes",
+    "notices": [
+      "cargo/blake2-0.11.0/LICENSE-APACHE",
+      "cargo/blake2-0.11.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "block-buffer",
+    "version": "0.12.1",
+    "checksum": "d2f6c7dbe95a6ed67ad9f18e57daf93a2f034c524b99fd2b76d18fdfeb6660aa",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/block-buffer-0.12.1/LICENSE-APACHE",
+      "cargo/block-buffer-0.12.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "block-padding",
+    "version": "0.4.2",
+    "checksum": "710f1dd022ef4e93f8a438b4ba958de7f64308434fa6a87104481645cc30068b",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/block-padding-0.4.2/LICENSE-APACHE",
+      "cargo/block-padding-0.4.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "blowfish",
+    "version": "0.10.0",
+    "checksum": "62ce3946557b35e71d1bbe07ec385073ce9eda05043f95de134eb578fcf1a298",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/block-ciphers",
+    "notices": [
+      "cargo/blowfish-0.10.0/LICENSE-APACHE",
+      "cargo/blowfish-0.10.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "bumpalo",
+    "version": "3.20.3",
+    "checksum": "72f5acc6cb2ba439de613abc23857ec3d78374d8ed5ac84e9d11336e87da8649",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Nick Fitzgerald <fitzgen@gmail.com>"
+    ],
+    "repository": "https://github.com/fitzgen/bumpalo",
+    "notices": [
+      "cargo/bumpalo-3.20.3/LICENSE-APACHE",
+      "cargo/bumpalo-3.20.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "byteorder",
+    "version": "1.5.0",
+    "checksum": "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b",
+    "license": "Unlicense OR MIT",
+    "authors": [
+      "Andrew Gallant <jamslam@gmail.com>"
+    ],
+    "repository": "https://github.com/BurntSushi/byteorder",
+    "notices": [
+      "cargo/byteorder-1.5.0/COPYING",
+      "cargo/byteorder-1.5.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "bytes",
+    "version": "1.12.1",
+    "checksum": "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04",
+    "license": "MIT",
+    "authors": [
+      "Carl Lerche <me@carllerche.com>",
+      "Sean McArthur <sean@seanmonstar.com>"
+    ],
+    "repository": "https://github.com/tokio-rs/bytes",
+    "notices": [
+      "cargo/bytes-1.12.1/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cbc",
+    "version": "0.2.1",
+    "checksum": "ce2dc9ee5f88d11e0beb842c88b33c8a5cf0d1329c4b19494af42b07dbfe8896",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/block-modes",
+    "notices": [
+      "cargo/cbc-0.2.1/LICENSE-APACHE",
+      "cargo/cbc-0.2.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cc",
+    "version": "1.11.1",
+    "checksum": "4ff2a8126fff0f8c839080d619675a585e61720bb12d2baceae45769fd66f155",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/cc-rs",
+    "notices": [
+      "cargo/cc-1.11.1/LICENSE-APACHE",
+      "cargo/cc-1.11.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cesu8",
+    "version": "1.1.0",
+    "checksum": "6d43a04d8753f35258c91f8ec639f792891f748a1edbd759cf1dcea3382ad83c",
+    "license": "Apache-2.0/MIT",
+    "authors": [
+      "Eric Kidd <git@randomhacks.net>"
+    ],
+    "repository": "https://github.com/emk/cesu8-rs",
+    "notices": [
+      "cargo/cesu8-1.1.0/COPYRIGHT-RUST.txt"
+    ],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "cfg-if",
+    "version": "1.0.5",
+    "checksum": "4e7648175b45a9a48536d676f68d918270699102aa8dab5496df06904c914600",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Alex Crichton <alex@alexcrichton.com>"
+    ],
+    "repository": "https://github.com/rust-lang/cfg-if",
+    "notices": [
+      "cargo/cfg-if-1.0.5/LICENSE-APACHE",
+      "cargo/cfg-if-1.0.5/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cfg_aliases",
+    "version": "0.2.2",
+    "checksum": "f079e83a288787bcd14a6aea84cee5c87a67c5a3e660c30f557a3d24761b3527",
+    "license": "MIT",
+    "authors": [
+      "Zicklag <zicklag@katharostech.com>"
+    ],
+    "repository": "https://github.com/katharostech/cfg_aliases",
+    "notices": [
+      "cargo/cfg_aliases-0.2.2/LICENSE",
+      "cargo/cfg_aliases-0.2.2/NOTICES.md"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "chacha20",
+    "version": "0.10.2",
+    "checksum": "65c35e4b699c7e15ccbe7ee35c005e4fc0a278d22238a2857e6ce2dadeda1b06",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/stream-ciphers",
+    "notices": [
+      "cargo/chacha20-0.10.2/LICENSE-APACHE",
+      "cargo/chacha20-0.10.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "chrono",
+    "version": "0.4.45",
+    "checksum": "1aa79e62e7697b8e29b513a68abacf485adcd1fe8284a4316c5ae868e6633327",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/chronotope/chrono",
+    "notices": [
+      "cargo/chrono-0.4.45/LICENSE.txt"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cipher",
+    "version": "0.5.2",
+    "checksum": "e8cf2a2c93cd704877c0858356ed03480ff301ee950b43f1cbe4573b088bfa6c",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/cipher-0.5.2/LICENSE-APACHE",
+      "cargo/cipher-0.5.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cmov",
+    "version": "0.5.4",
+    "checksum": "0c9ea0ac24bc397ab3c98583a3c9ba74fa56b09a4449bbe172b9b1ddb016027a",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/cmov-0.5.4/LICENSE-APACHE",
+      "cargo/cmov-0.5.4/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "combine",
+    "version": "4.6.9",
+    "checksum": "4356eba6976435498d05a311ee9fc486da3bc81c200d3f0d7dd9703b41913f92",
+    "license": "MIT",
+    "authors": [
+      "Markus Westerlind <marwes91@gmail.com>"
+    ],
+    "repository": "https://github.com/Marwes/combine",
+    "notices": [
+      "cargo/combine-4.6.9/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "const-oid",
+    "version": "0.10.2",
+    "checksum": "a6ef517f0926dd24a1582492c791b6a4818a4d94e789a334894aa15b0d12f55c",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/const-oid-0.10.2/LICENSE-APACHE",
+      "cargo/const-oid-0.10.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "core-foundation-sys",
+    "version": "0.8.7",
+    "checksum": "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Servo Project Developers"
+    ],
+    "repository": "https://github.com/servo/core-foundation-rs",
+    "notices": [
+      "cargo/core-foundation-sys-0.8.7/LICENSE-APACHE",
+      "cargo/core-foundation-sys-0.8.7/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cpubits",
+    "version": "0.1.1",
+    "checksum": "15b85f9c39137c3a891689859392b1bd49812121d0d61c9caf00d46ed5ce06ae",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/cpubits-0.1.1/LICENSE-APACHE",
+      "cargo/cpubits-0.1.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "cpufeatures",
+    "version": "0.3.1",
+    "checksum": "5ca28b0ae3115b884660db4118d803791fd6756b6e88f39c0f3f7859060d7566",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/cpufeatures-0.3.1/LICENSE-APACHE",
+      "cargo/cpufeatures-0.3.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "crypto-bigint",
+    "version": "0.7.10",
+    "checksum": "9c035cb64cba03dad2fb921f3e218785e8cf9a41790da5eb3a1400f62fa2be11",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/crypto-bigint",
+    "notices": [
+      "cargo/crypto-bigint-0.7.10/LICENSE-APACHE",
+      "cargo/crypto-bigint-0.7.10/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "crypto-common",
+    "version": "0.2.2",
+    "checksum": "ce6e4c961d6cd6c9a86db418387425e8bdeaf05b3c8bc1411e6dca4c252f1453",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/crypto-common-0.2.2/LICENSE-APACHE",
+      "cargo/crypto-common-0.2.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "crypto-primes",
+    "version": "0.7.2",
+    "checksum": "3633a51a39c69ebbaa4feaa694bd83d241e4093901c84a0963b19d9bb3f0cf8f",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [],
+    "repository": "https://github.com/entropyxyz/crypto-primes",
+    "notices": [
+      "cargo/crypto-primes-0.7.2/LICENSE-APACHE",
+      "cargo/crypto-primes-0.7.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ctr",
+    "version": "0.10.1",
+    "checksum": "baaca1c4b237092596f64d571e9db6ce4109c4ef9742e27590f1709594461f21",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/block-modes",
+    "notices": [
+      "cargo/ctr-0.10.1/LICENSE-APACHE",
+      "cargo/ctr-0.10.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ctutils",
+    "version": "0.4.8",
+    "checksum": "261af4dc7a06ea8a527a8717d8cbba3417530d6ea14e1edb3de6b67806be474f",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/ctutils-0.4.8/LICENSE-APACHE",
+      "cargo/ctutils-0.4.8/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "curve25519-dalek",
+    "version": "5.0.0",
+    "checksum": "b5eed333089e2e1c1ac8c6c0398e5e2497b4c9926ca6d0365ed1e099afa5bc23",
+    "license": "BSD-3-Clause",
+    "authors": [
+      "Isis Lovecruft <isis@patternsinthevoid.net>",
+      "Henry de Valence <hdevalence@hdevalence.ca>"
+    ],
+    "repository": "https://github.com/dalek-cryptography/curve25519-dalek/tree/main/curve25519-dalek",
+    "notices": [
+      "cargo/curve25519-dalek-5.0.0/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "curve25519-dalek-derive",
+    "version": "0.1.1",
+    "checksum": "f46882e17999c6cc590af592290432be3bce0428cb0d5f8b6715e4dc7b383eb3",
+    "license": "MIT/Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/dalek-cryptography/curve25519-dalek",
+    "notices": [
+      "cargo/curve25519-dalek-derive-0.1.1/LICENSE-APACHE",
+      "cargo/curve25519-dalek-derive-0.1.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "data-encoding",
+    "version": "2.11.1",
+    "checksum": "4583a4551df46e2792f82ceeac45e850d2e2d5debba0b91f102385cda5b11f06",
+    "license": "MIT",
+    "authors": [],
+    "repository": "https://github.com/ia0/data-encoding",
+    "notices": [
+      "cargo/data-encoding-2.11.1/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "delegate",
+    "version": "0.13.5",
+    "checksum": "780eb241654bf097afb00fc5f054a09b687dad862e485fdcf8399bb056565370",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Godfrey Chan <godfreykfc@gmail.com>",
+      "Jakub Ber\u00e1nek <berykubik@gmail.com>"
+    ],
+    "repository": "https://github.com/kobzol/rust-delegate",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "der",
+    "version": "0.8.3",
+    "checksum": "6a996a108feb8b427a6e12fcf6af4aa83409b79d72c15337d7741368131ee004",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/der-0.8.3/LICENSE-APACHE",
+      "cargo/der-0.8.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "des",
+    "version": "0.9.0",
+    "checksum": "916a94e407b54f9034d71dd748234cd1e516ced6284009906ae246f177eafe5a",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/block-ciphers",
+    "notices": [
+      "cargo/des-0.9.0/LICENSE-APACHE",
+      "cargo/des-0.9.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "digest",
+    "version": "0.11.3",
+    "checksum": "f1dd6dbb5841937940781866fa1281a1ff7bd3bf827091440879f9994983d5c2",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/digest-0.11.3/LICENSE-APACHE",
+      "cargo/digest-0.11.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ecdsa",
+    "version": "0.17.0",
+    "checksum": "c0681a4fc24c767085329728d8dfba959af91228aa4610cca4f8ce317ba46ae0",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/signatures",
+    "notices": [
+      "cargo/ecdsa-0.17.0/LICENSE-APACHE",
+      "cargo/ecdsa-0.17.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ed25519",
+    "version": "3.0.0",
+    "checksum": "29fcf32e6c73d1079f83ab4d782de2d81620346a5f38c6237a86a22f8368980a",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/signatures",
+    "notices": [
+      "cargo/ed25519-3.0.0/LICENSE-APACHE",
+      "cargo/ed25519-3.0.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ed25519-dalek",
+    "version": "3.0.0",
+    "checksum": "6ebaa1a2bf1290ab3bfe5a7b771d050ebffab2711c19a81691c683a5144a25de",
+    "license": "BSD-3-Clause",
+    "authors": [
+      "isis lovecruft <isis@patternsinthevoid.net>",
+      "Tony Arcieri <bascule@gmail.com>",
+      "Michael Rosenberg <michael@mrosenberg.pub>"
+    ],
+    "repository": "https://github.com/dalek-cryptography/curve25519-dalek/tree/main/ed25519-dalek",
+    "notices": [
+      "cargo/ed25519-dalek-3.0.0/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "elliptic-curve",
+    "version": "0.14.3",
+    "checksum": "900f37e7e18d74a2347389af6cd69e3a30d5cc9e697f40004865679aa75e9c7c",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/elliptic-curve-0.14.3/LICENSE-APACHE",
+      "cargo/elliptic-curve-0.14.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "enum_dispatch",
+    "version": "0.3.13",
+    "checksum": "aa18ce2bc66555b3218614519ac839ddb759a7d6720732f979ef8d13be147ecd",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Anton Lazarev <https://antonok.com>"
+    ],
+    "repository": "https://gitlab.com/antonok/enum_dispatch",
+    "notices": [
+      "cargo/enum_dispatch-0.3.13/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ff",
+    "version": "0.14.0",
+    "checksum": "a1f686ab92a9fb0eaf188f6c6c87b89490baa6fdb0db4544ba4dc47f7942489f",
+    "license": "MIT/Apache-2.0",
+    "authors": [
+      "Sean Bowe <ewillbefull@gmail.com>",
+      "Jack Grigg <thestr4d@gmail.com>"
+    ],
+    "repository": "https://github.com/zkcrypto/ff",
+    "notices": [
+      "cargo/ff-0.14.0/LICENSE-APACHE",
+      "cargo/ff-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "fiat-crypto",
+    "version": "0.3.0",
+    "checksum": "64cd1e32ddd350061ae6edb1b082d7c54915b5c672c389143b9a63403a109f24",
+    "license": "MIT OR Apache-2.0 OR BSD-1-Clause",
+    "authors": [
+      "Fiat Crypto library authors <jgross@mit.edu>"
+    ],
+    "repository": "https://github.com/mit-plv/fiat-crypto",
+    "notices": [
+      "cargo/fiat-crypto-0.3.0/COPYRIGHT",
+      "cargo/fiat-crypto-0.3.0/LICENSE-APACHE",
+      "cargo/fiat-crypto-0.3.0/LICENSE-BSD-1",
+      "cargo/fiat-crypto-0.3.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "find-msvc-tools",
+    "version": "0.1.15",
+    "checksum": "1c66915cc5391097de7a2b0b972e8505aa33c0df401fd3a6811dbdb32881ba48",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/cc-rs",
+    "notices": [
+      "cargo/find-msvc-tools-0.1.15/LICENSE-APACHE",
+      "cargo/find-msvc-tools-0.1.15/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures",
+    "version": "0.3.34",
+    "checksum": "9a31d2a3fbaaeb2af2368bbdd904aa8e812d3c04a1ee10d3171f52d556e5d0a3",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-0.3.34/LICENSE-APACHE",
+      "cargo/futures-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-channel",
+    "version": "0.3.34",
+    "checksum": "b1f9e3d69d39e4862ffed03ed071a76f9a13ba1d9109d355b0f0aa6b15e393c4",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-channel-0.3.34/LICENSE-APACHE",
+      "cargo/futures-channel-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-core",
+    "version": "0.3.34",
+    "checksum": "92d699e522242e69e3003b94ecc1f960f3a5e015aa7c5d7486e65ad01dd94f5e",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-core-0.3.34/LICENSE-APACHE",
+      "cargo/futures-core-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-executor",
+    "version": "0.3.34",
+    "checksum": "031b47cf1a3c6cc8bc2fc76cd437f521619387907d469316e7c0bc278f1f5432",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-executor-0.3.34/LICENSE-APACHE",
+      "cargo/futures-executor-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-io",
+    "version": "0.3.34",
+    "checksum": "53c0fa8157de1303bfffdaa1cc2a673bfffb60102f76b0ef4441659124373fed",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-io-0.3.34/LICENSE-APACHE",
+      "cargo/futures-io-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-macro",
+    "version": "0.3.34",
+    "checksum": "9fb9654ba8355388abeb8dcb4fc62f511300867002afc858860463bdd9fe0c44",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-macro-0.3.34/LICENSE-APACHE",
+      "cargo/futures-macro-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-sink",
+    "version": "0.3.34",
+    "checksum": "1944426bf7d03f1d14f708785e4b33efd750b36d48a157b836b3efc15ede8e1d",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-sink-0.3.34/LICENSE-APACHE",
+      "cargo/futures-sink-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-task",
+    "version": "0.3.34",
+    "checksum": "cd417de3d1d015fc3bfd2b1ea46dfc7bab72ef86f1cc7cc9c78e728b34a6d1fd",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-task-0.3.34/LICENSE-APACHE",
+      "cargo/futures-task-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "futures-util",
+    "version": "0.3.34",
+    "checksum": "0d50a92467f8ba5dd6e3ee5d4bd04d73ab2e4e1c44474a0674821dfce14b79bc",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "notices": [
+      "cargo/futures-util-0.3.34/LICENSE-APACHE",
+      "cargo/futures-util-0.3.34/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "generic-array",
+    "version": "1.4.5",
+    "checksum": "337d46834ee672ab3e48caca2cb0c78cc174fb12b3a68d0d88f99a0519a5e36e",
+    "license": "MIT",
+    "authors": [
+      "Bart\u0142omiej Kami\u0144ski <fizyk20@gmail.com>",
+      "Aaron Trent <novacrazy@gmail.com>"
+    ],
+    "repository": "https://github.com/fizyk20/generic-array.git",
+    "notices": [
+      "cargo/generic-array-1.4.5/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "getrandom",
+    "version": "0.2.17",
+    "checksum": "ff2abc00be7fca6ebc474524697ae276ad847ad0a6b3faa4bcb027e9a4614ad0",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rand Project Developers"
+    ],
+    "repository": "https://github.com/rust-random/getrandom",
+    "notices": [
+      "cargo/getrandom-0.2.17/LICENSE-APACHE",
+      "cargo/getrandom-0.2.17/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "getrandom",
+    "version": "0.4.3",
+    "checksum": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rand Project Developers"
+    ],
+    "repository": "https://github.com/rust-random/getrandom",
+    "notices": [
+      "cargo/getrandom-0.4.3/LICENSE-APACHE",
+      "cargo/getrandom-0.4.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ghash",
+    "version": "0.6.0",
+    "checksum": "2eecf2d5dc9b66b732b97707a0210906b1d30523eb773193ab777c0c84b3e8d5",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/universal-hashes",
+    "notices": [
+      "cargo/ghash-0.6.0/LICENSE-APACHE",
+      "cargo/ghash-0.6.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "group",
+    "version": "0.14.0",
+    "checksum": "7fd1a1c7a5206c5b7a3f5a0d7ccd3ff85d0c8f5133d62a02680255b0004af5f4",
+    "license": "MIT/Apache-2.0",
+    "authors": [
+      "Sean Bowe <ewillbefull@gmail.com>",
+      "Jack Grigg <jack@z.cash>"
+    ],
+    "repository": "https://github.com/zkcrypto/group",
+    "notices": [
+      "cargo/group-0.14.0/COPYRIGHT",
+      "cargo/group-0.14.0/LICENSE-APACHE",
+      "cargo/group-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "hex",
+    "version": "0.4.3",
+    "checksum": "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "KokaKiwi <kokakiwi@kokakiwi.net>"
+    ],
+    "repository": "https://github.com/KokaKiwi/rust-hex",
+    "notices": [
+      "cargo/hex-0.4.3/LICENSE-APACHE",
+      "cargo/hex-0.4.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "hex-literal",
+    "version": "1.1.0",
+    "checksum": "e712f64ec3850b98572bffac52e2c6f282b29fe6c5fa6d42334b30be438d95c1",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/hex-literal-1.1.0/LICENSE-APACHE",
+      "cargo/hex-literal-1.1.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "hkdf",
+    "version": "0.13.0",
+    "checksum": "4aaa26c720c68b866f2c96ef5c1264b3e6f473fe5d4ce61cd44bbe913e553018",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/KDFs/",
+    "notices": [
+      "cargo/hkdf-0.13.0/LICENSE-APACHE",
+      "cargo/hkdf-0.13.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "hmac",
+    "version": "0.13.0",
+    "checksum": "6303bc9732ae41b04cb554b844a762b4115a61bfaa81e3e83050991eeb56863f",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/MACs",
+    "notices": [
+      "cargo/hmac-0.13.0/LICENSE-APACHE",
+      "cargo/hmac-0.13.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "hybrid-array",
+    "version": "0.4.15",
+    "checksum": "27f864f10dfb56725ce5ce5472bc52252c8f93a4ab86327122cebf62c5f59a17",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/hybrid-array",
+    "notices": [
+      "cargo/hybrid-array-0.4.15/LICENSE-APACHE",
+      "cargo/hybrid-array-0.4.15/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "iana-time-zone",
+    "version": "0.1.65",
+    "checksum": "e31bc9ad994ba00e440a8aa5c9ef0ec67d5cb5e5cb0cc7f8b744a35b389cc470",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Andrew Straw <strawman@astraw.com>",
+      "Ren\u00e9 Kijewski <rene.kijewski@fu-berlin.de>",
+      "Ryan Lopopolo <rjl@hyperbo.la>"
+    ],
+    "repository": "https://github.com/strawlab/iana-time-zone",
+    "notices": [
+      "cargo/iana-time-zone-0.1.65/LICENSE-APACHE",
+      "cargo/iana-time-zone-0.1.65/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "iana-time-zone-haiku",
+    "version": "0.1.2",
+    "checksum": "f31827a206f56af32e590ba56d5d2d085f558508192593743f16b2306495269f",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Ren\u00e9 Kijewski <crates.io@k6i.de>"
+    ],
+    "repository": "https://github.com/strawlab/iana-time-zone",
+    "notices": [
+      "cargo/iana-time-zone-haiku-0.1.2/LICENSE-APACHE",
+      "cargo/iana-time-zone-haiku-0.1.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "inout",
+    "version": "0.2.6",
+    "checksum": "3a580c13f0ffc335ef42dd3f6b1a41b726051c5e1656d9a3aa6fddb3c5dfbbf9",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/inout-0.2.6/LICENSE-APACHE",
+      "cargo/inout-0.2.6/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "jni",
+    "version": "0.21.1",
+    "checksum": "1a87aa2bb7d2af34197c04845522473242e1aa17c12f4935d5856491a7fb8c97",
+    "license": "MIT/Apache-2.0",
+    "authors": [
+      "Josh Chase <josh@prevoty.com>"
+    ],
+    "repository": "https://github.com/jni-rs/jni-rs",
+    "notices": [
+      "cargo/jni-0.21.1/LICENSE-APACHE",
+      "cargo/jni-0.21.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "jni-sys",
+    "version": "0.3.1",
+    "checksum": "41a652e1f9b6e0275df1f15b32661cf0d4b78d4d87ddec5e0c3c20f097433258",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Steven Fackler <sfackler@gmail.com>"
+    ],
+    "repository": "https://github.com/jni-rs/jni-sys",
+    "notices": [
+      "cargo/jni-sys-0.3.1/LICENSE-APACHE",
+      "cargo/jni-sys-0.3.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "jni-sys",
+    "version": "0.4.1",
+    "checksum": "c6377a88cb3910bee9b0fa88d4f42e1d2da8e79915598f65fb0c7ee14c878af2",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Steven Fackler <sfackler@gmail.com>",
+      "Robert Bragg <robert@sixbynine.org>"
+    ],
+    "repository": "https://github.com/jni-rs/jni-sys",
+    "notices": [
+      "cargo/jni-sys-0.4.1/LICENSE-APACHE",
+      "cargo/jni-sys-0.4.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "jni-sys-macros",
+    "version": "0.4.1",
+    "checksum": "38c0b942f458fe50cdac086d2f946512305e5631e720728f2a61aabcd47a6264",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Robert Bragg <robert@sixbynine.org>"
+    ],
+    "repository": "https://github.com/jni-rs/jni-sys",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "js-sys",
+    "version": "0.3.107",
+    "checksum": "8dc09d2154098bbf4ef54eab6b117a3c24cbbffe94046b16ee6d6d4510584d3a",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The wasm-bindgen Developers"
+    ],
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/js-sys",
+    "notices": [
+      "cargo/js-sys-0.3.107/LICENSE-APACHE",
+      "cargo/js-sys-0.3.107/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "keccak",
+    "version": "0.2.2",
+    "checksum": "d8f198d1db720e4940b5a493201d199d9f24f568f8f746bd13706243a2f71598",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/sponges",
+    "notices": [
+      "cargo/keccak-0.2.2/LICENSE-APACHE",
+      "cargo/keccak-0.2.2/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "kem",
+    "version": "0.3.0",
+    "checksum": "01737161ba802849cfd486b5bd209d38ba4943494c249a8126005170c7621edd",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/kem-0.3.0/LICENSE-APACHE",
+      "cargo/kem-0.3.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "libc",
+    "version": "0.2.191",
+    "checksum": "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-lang/libc",
+    "notices": [
+      "cargo/libc-0.2.191/LICENSE-APACHE",
+      "cargo/libc-0.2.191/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "log",
+    "version": "0.4.35",
+    "checksum": "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rust Project Developers"
+    ],
+    "repository": "https://github.com/rust-lang/log",
+    "notices": [
+      "cargo/log-0.4.35/LICENSE-APACHE",
+      "cargo/log-0.4.35/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "md5",
+    "version": "0.8.1",
+    "checksum": "7ebb8d8732c6a6df3d8f032a82911cfc747e00efb95cc46e8d0acd5b5b88570c",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "Daniel McKenna <danielmckenna93@gmail.com>",
+      "Ivan Ukhov <ivan.ukhov@gmail.com>",
+      "Kamal Ahmad <shibe@openmailbox.org>",
+      "Konstantin Stepanov <milezv@gmail.com>",
+      "Lukas Kalbertodt <lukas.kalbertodt@gmail.com>",
+      "Nathan Musoke <nathan.musoke@gmail.com>",
+      "Scott Mabin <scott@mabez.dev>",
+      "Tony Arcieri <bascule@gmail.com>",
+      "Wim de With <register@dewith.io>",
+      "Yosef Dinerstein <yosefdi@gmail.com>"
+    ],
+    "repository": "https://github.com/stainless-steel/md5",
+    "notices": [
+      "cargo/md5-0.8.1/LICENSE.md"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "memchr",
+    "version": "2.8.3",
+    "checksum": "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98",
+    "license": "Unlicense OR MIT",
+    "authors": [
+      "Andrew Gallant <jamslam@gmail.com>",
+      "bluss"
+    ],
+    "repository": "https://github.com/BurntSushi/memchr",
+    "notices": [
+      "cargo/memchr-2.8.3/COPYING",
+      "cargo/memchr-2.8.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "minicbor",
+    "version": "2.3.1",
+    "checksum": "e7244eafd1e09e7c4e33043881997aa6ab6dffff3ed2cee3395a278980481d6e",
+    "license": "BlueOak-1.0.0",
+    "authors": [
+      "Toralf Wittner <tw@dtex.org>"
+    ],
+    "repository": "https://github.com/twittner/minicbor",
+    "notices": [
+      "cargo/minicbor-2.3.1/LICENSE.md"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "mio",
+    "version": "1.2.4",
+    "checksum": "1788edb87fdc09c7e26304471e2f5be8cdefb1b6930d6e3985fc02ff53bf86ee",
+    "license": "MIT",
+    "authors": [
+      "Carl Lerche <me@carllerche.com>",
+      "Thomas de Zeeuw <thomasdezeeuw@gmail.com>",
+      "Tokio Contributors <team@tokio.rs>"
+    ],
+    "repository": "https://github.com/tokio-rs/mio",
+    "notices": [
+      "cargo/mio-1.2.4/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ml-kem",
+    "version": "0.3.4",
+    "checksum": "84ca78b66f46050d49fa21693ae8adab2081d8101b65d8067316b6b70b64a0d1",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [],
+    "repository": "https://github.com/RustCrypto/KEMs",
+    "notices": [
+      "cargo/ml-kem-0.3.4/LICENSE-APACHE",
+      "cargo/ml-kem-0.3.4/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "module-lattice",
+    "version": "0.2.4",
+    "checksum": "c4a1e412c8ee83a1c678f427806219c49c96b2511b9f07497514f0e43fb26155",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [],
+    "repository": "https://github.com/RustCrypto/KEMs",
+    "notices": [
+      "cargo/module-lattice-0.2.4/LICENSE-APACHE",
+      "cargo/module-lattice-0.2.4/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "nix",
+    "version": "0.31.3",
+    "checksum": "cf20d2fde8ff38632c426f1165ed7436270b44f199fc55284c38276f9db47c3d",
+    "license": "MIT",
+    "authors": [],
+    "repository": "https://github.com/nix-rust/nix",
+    "notices": [
+      "cargo/nix-0.31.3/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "num-bigint",
+    "version": "0.5.1",
+    "checksum": "93e7820bc0a80a0238e650327316f929ba18d5be054b647490a3a6a339f3e7c0",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/rust-num/num-bigint",
+    "notices": [
+      "cargo/num-bigint-0.5.1/LICENSE-APACHE",
+      "cargo/num-bigint-0.5.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "num-integer",
+    "version": "0.1.47",
+    "checksum": "7ce2d95d4b3734dc35aa2f45e1aa22cd416814592a4f9d9205e11affd5b8e10b",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rust Project Developers"
+    ],
+    "repository": "https://github.com/rust-num/num-integer",
+    "notices": [
+      "cargo/num-integer-0.1.47/LICENSE-APACHE",
+      "cargo/num-integer-0.1.47/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "num-traits",
+    "version": "0.2.19",
+    "checksum": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rust Project Developers"
+    ],
+    "repository": "https://github.com/rust-num/num-traits",
+    "notices": [
+      "cargo/num-traits-0.2.19/LICENSE-APACHE",
+      "cargo/num-traits-0.2.19/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "once_cell",
+    "version": "1.21.4",
+    "checksum": "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Aleksey Kladov <aleksey.kladov@gmail.com>"
+    ],
+    "repository": "https://github.com/matklad/once_cell",
+    "notices": [
+      "cargo/once_cell-1.21.4/LICENSE-APACHE",
+      "cargo/once_cell-1.21.4/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "p256",
+    "version": "0.14.0",
+    "checksum": "d2c9239b2dbc807adbbe147e8cf72ea7450c3a0aabe62cb8e75ff4ec22e1f72a",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/elliptic-curves",
+    "notices": [
+      "cargo/p256-0.14.0/LICENSE-APACHE",
+      "cargo/p256-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "p384",
+    "version": "0.14.0",
+    "checksum": "d17b851e6b3e378ab4ecb07fa2ed23f4d15f075735f8fec9fa1e7bdce5f8301f",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers",
+      "Frank Denis <github@pureftpd.org>"
+    ],
+    "repository": "https://github.com/RustCrypto/elliptic-curves",
+    "notices": [
+      "cargo/p384-0.14.0/LICENSE-APACHE",
+      "cargo/p384-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "p521",
+    "version": "0.14.0",
+    "checksum": "4ad64cc32c2dc466317c12ee5853e61f159f9eab1fe7efade0395dc2e7b43449",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/elliptic-curves",
+    "notices": [
+      "cargo/p521-0.14.0/LICENSE-APACHE",
+      "cargo/p521-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pageant",
+    "version": "0.2.5",
+    "checksum": "e0bc922d9aa8cfcf598de27b3c6122cb2eeda9d6fe71527a22ebcb7f633540ff",
+    "license": "Apache-2.0",
+    "authors": [
+      "Eugene <inbox@null.page>"
+    ],
+    "repository": "https://github.com/warp-tech/russh",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "password-hash",
+    "version": "0.6.1",
+    "checksum": "aab41826031698d6ffcd9cff78ef56ef998e39dc7e5067cdfebe373842d4723b",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/password-hash-0.6.1/LICENSE-APACHE",
+      "cargo/password-hash-0.6.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pbkdf2",
+    "version": "0.13.0",
+    "checksum": "112d82ceb8c5bf524d9af484d4e4970c9fd5a0cc15ba14ad93dccd28873b0629",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/password-hashes",
+    "notices": [
+      "cargo/pbkdf2-0.13.0/LICENSE-APACHE",
+      "cargo/pbkdf2-0.13.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pem-rfc7468",
+    "version": "1.0.0",
+    "checksum": "a6305423e0e7738146434843d1694d621cce767262b2a86910beab705e4493d9",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/pem-rfc7468-1.0.0/LICENSE-APACHE",
+      "cargo/pem-rfc7468-1.0.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "phc",
+    "version": "0.6.1",
+    "checksum": "44dc769b75f93afdddd8c7fa12d685292ddeff1e66f7f0f3a234cf1818afe892",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/phc-0.6.1/LICENSE-APACHE",
+      "cargo/phc-0.6.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pin-project-lite",
+    "version": "0.2.17",
+    "checksum": "a89322df9ebe1c1578d689c92318e070967d1042b512afbe49518723f4e6d5cd",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [],
+    "repository": "https://github.com/taiki-e/pin-project-lite",
+    "notices": [
+      "cargo/pin-project-lite-0.2.17/LICENSE-APACHE",
+      "cargo/pin-project-lite-0.2.17/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pkcs1",
+    "version": "0.8.0-rc.4",
+    "checksum": "986d2e952779af96ea048f160fd9194e1751b4faea78bcf3ceb456efe008088e",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/pkcs1-0.8.0-rc.4/LICENSE-APACHE",
+      "cargo/pkcs1-0.8.0-rc.4/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pkcs5",
+    "version": "0.8.1",
+    "checksum": "63d440a804ec8d6fafbb6b84471e013286658d373248927692ab3366686220ca",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/pkcs5-0.8.1/LICENSE-APACHE",
+      "cargo/pkcs5-0.8.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "pkcs8",
+    "version": "0.11.0",
+    "checksum": "451913da69c775a56034ea8d9003d27ee8948e12443eae7c038ba100a4f21cb7",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/pkcs8-0.11.0/LICENSE-APACHE",
+      "cargo/pkcs8-0.11.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "poly1305",
+    "version": "0.9.1",
+    "checksum": "6e2d0073b297041425c7c3df6eb4792d598a15323fe63346852b092eca02904c",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/universal-hashes",
+    "notices": [
+      "cargo/poly1305-0.9.1/LICENSE-APACHE",
+      "cargo/poly1305-0.9.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "polyval",
+    "version": "0.7.3",
+    "checksum": "f0fa31d631f2b2cb2a544d0aa321ce847a94764d701ca2becc411138b93d49cd",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/universal-hashes",
+    "notices": [
+      "cargo/polyval-0.7.3/LICENSE-APACHE",
+      "cargo/polyval-0.7.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "primefield",
+    "version": "0.14.0",
+    "checksum": "c555a6e4eb7d4e158fcb028c835c3b8642206ddc279b5c6b202ef9a8bdb592f4",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/elliptic-curves",
+    "notices": [
+      "cargo/primefield-0.14.0/LICENSE-APACHE",
+      "cargo/primefield-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "primeorder",
+    "version": "0.14.0",
+    "checksum": "5c9f42978c78a00e3d68f69fc03e57a234debae69da4020a4fb588fcdcd07b06",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/elliptic-curves",
+    "notices": [
+      "cargo/primeorder-0.14.0/LICENSE-APACHE",
+      "cargo/primeorder-0.14.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "proc-macro2",
+    "version": "1.0.107",
+    "checksum": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>",
+      "Alex Crichton <alex@alexcrichton.com>"
+    ],
+    "repository": "https://github.com/dtolnay/proc-macro2",
+    "notices": [
+      "cargo/proc-macro2-1.0.107/LICENSE-APACHE",
+      "cargo/proc-macro2-1.0.107/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "quote",
+    "version": "1.0.47",
+    "checksum": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/quote",
+    "notices": [
+      "cargo/quote-1.0.47/LICENSE-APACHE",
+      "cargo/quote-1.0.47/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "r-efi",
+    "version": "6.0.0",
+    "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf",
+    "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+    "authors": [],
+    "repository": "https://github.com/r-efi/r-efi",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "rand",
+    "version": "0.10.3",
+    "checksum": "65c9fb96cbc91e3478eaae79a69fcd3f1ae4ad052e471fe6732fff548984b4af",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rand Project Developers",
+      "The Rust Project Developers"
+    ],
+    "repository": "https://github.com/rust-random/rand",
+    "notices": [
+      "cargo/rand-0.10.3/COPYRIGHT",
+      "cargo/rand-0.10.3/LICENSE-APACHE",
+      "cargo/rand-0.10.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "rand_core",
+    "version": "0.10.1",
+    "checksum": "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The Rand Project Developers"
+    ],
+    "repository": "https://github.com/rust-random/rand_core",
+    "notices": [
+      "cargo/rand_core-0.10.1/COPYRIGHT",
+      "cargo/rand_core-0.10.1/LICENSE-APACHE",
+      "cargo/rand_core-0.10.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "rfc6979",
+    "version": "0.6.0",
+    "checksum": "b4a459cddafb3fe76b31fd8f1108007566c40301feb64dc7b54656eb7388172b",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/signatures",
+    "notices": [
+      "cargo/rfc6979-0.6.0/LICENSE-APACHE",
+      "cargo/rfc6979-0.6.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ring",
+    "version": "0.17.14",
+    "checksum": "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7",
+    "license": "Apache-2.0 AND ISC",
+    "authors": [],
+    "repository": "https://github.com/briansmith/ring",
+    "notices": [
+      "cargo/ring-0.17.14/LICENSE",
+      "cargo/ring-0.17.14/LICENSE-BoringSSL",
+      "cargo/ring-0.17.14/LICENSE-other-bits",
+      "cargo/ring-0.17.14/src/polyfill/once_cell/LICENSE-APACHE",
+      "cargo/ring-0.17.14/src/polyfill/once_cell/LICENSE-MIT",
+      "cargo/ring-0.17.14/third_party/fiat/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "rsa",
+    "version": "0.10.0-rc.18",
+    "checksum": "30b2aa4ba0d89f73d1e332df05be0eeab8840351c36ca5654341dfdb57bb3caf",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers",
+      "dignifiedquire <dignifiedquire@gmail.com>"
+    ],
+    "repository": "https://github.com/RustCrypto/RSA",
+    "notices": [
+      "cargo/rsa-0.10.0-rc.18/LICENSE-APACHE",
+      "cargo/rsa-0.10.0-rc.18/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "russh",
+    "version": "0.65.1",
+    "checksum": "94be3d86c71b9ed220a675c405e35c7a02565a009bf8da2e9cc13a700320a5c5",
+    "license": "Apache-2.0",
+    "authors": [
+      "Pierre-\u00c9tienne Meunier <pe@pijul.org>"
+    ],
+    "repository": "https://github.com/warp-tech/russh",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "russh-cryptovec",
+    "version": "0.62.0",
+    "checksum": "3aec6cb630dbe85d72ffd7bcd95f07e1bd69f9f270ee8adfa1afe443a6331438",
+    "license": "Apache-2.0",
+    "authors": [
+      "Pierre-\u00c9tienne Meunier <pe@pijul.org>",
+      "Eugeny <e@ajenti.org"
+    ],
+    "repository": "https://github.com/warp-tech/russh",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "russh-util",
+    "version": "0.52.0",
+    "checksum": "668424a5dde0bcb45b55ba7de8476b93831b4aa2fa6947e145f3b053e22c60b6",
+    "license": "Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/warp-tech/russh",
+    "notices": [],
+    "license_text_fallback": "Apache-2.0.txt"
+  },
+  {
+    "name": "rustc_version",
+    "version": "0.4.1",
+    "checksum": "cfcb3a22ef46e85b45de6ee7e79d063319ebb6594faafcf1c225ea92ab6e9b92",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/djc/rustc-version-rs",
+    "notices": [
+      "cargo/rustc_version-0.4.1/LICENSE-APACHE",
+      "cargo/rustc_version-0.4.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "rustversion",
+    "version": "1.0.23",
+    "checksum": "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/rustversion",
+    "notices": [
+      "cargo/rustversion-1.0.23/LICENSE-APACHE",
+      "cargo/rustversion-1.0.23/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "salsa20",
+    "version": "0.11.0",
+    "checksum": "2f874456e72520ff1375a06c588eaf074b0f01f9e9e1aada45bd9b7954a6e42c",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/stream-ciphers",
+    "notices": [
+      "cargo/salsa20-0.11.0/LICENSE-APACHE",
+      "cargo/salsa20-0.11.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "same-file",
+    "version": "1.0.6",
+    "checksum": "93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502",
+    "license": "Unlicense/MIT",
+    "authors": [
+      "Andrew Gallant <jamslam@gmail.com>"
+    ],
+    "repository": "https://github.com/BurntSushi/same-file",
+    "notices": [
+      "cargo/same-file-1.0.6/COPYING",
+      "cargo/same-file-1.0.6/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "scrypt",
+    "version": "0.12.0",
+    "checksum": "d87af57419b594aa23fa95f09f0e06d80d84ba01c26148c43844cad6ff4485f0",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/password-hashes",
+    "notices": [
+      "cargo/scrypt-0.12.0/LICENSE-APACHE",
+      "cargo/scrypt-0.12.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "sec1",
+    "version": "0.8.1",
+    "checksum": "d56d437c2f19203ce5f7122e507831de96f3d2d4d3be5af44a0b0a09d8a80e4d",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/sec1-0.8.1/LICENSE-APACHE",
+      "cargo/sec1-0.8.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "semver",
+    "version": "1.0.28",
+    "checksum": "8a7852d02fc848982e0c167ef163aaff9cd91dc640ba85e263cb1ce46fae51cd",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/semver",
+    "notices": [
+      "cargo/semver-1.0.28/LICENSE-APACHE",
+      "cargo/semver-1.0.28/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "serde",
+    "version": "1.0.229",
+    "checksum": "4148590afebada386688f18773da617792bf2ef03ffc1e4cbd2b1d45b023e0ba",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/serde-rs/serde",
+    "notices": [
+      "cargo/serde-1.0.229/LICENSE-APACHE",
+      "cargo/serde-1.0.229/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "serde_core",
+    "version": "1.0.229",
+    "checksum": "67dca2c9c51e58a4791a4b1ed58308b39c64224d349a935ab5039aa360942a48",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/serde-rs/serde",
+    "notices": [
+      "cargo/serde_core-1.0.229/LICENSE-APACHE",
+      "cargo/serde_core-1.0.229/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "serde_derive",
+    "version": "1.0.229",
+    "checksum": "e7a5d71263a5a7d47b41f6b3f06ba276f10cc18b0931f1799f710578e2309348",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Erick Tryzelaar <erick.tryzelaar@gmail.com>",
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/serde-rs/serde",
+    "notices": [
+      "cargo/serde_derive-1.0.229/LICENSE-APACHE",
+      "cargo/serde_derive-1.0.229/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "serdect",
+    "version": "0.4.3",
+    "checksum": "66cf8fedced2fcf12406bcb34223dffb92eaf34908ede12fed414c82b7f00b3e",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/serdect-0.4.3/LICENSE-APACHE",
+      "cargo/serdect-0.4.3/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "sha1",
+    "version": "0.11.0",
+    "checksum": "aacc4cc499359472b4abe1bf11d0b12e688af9a805fa5e3016f9a386dc2d0214",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/hashes",
+    "notices": [
+      "cargo/sha1-0.11.0/LICENSE-APACHE",
+      "cargo/sha1-0.11.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "sha2",
+    "version": "0.11.1",
+    "checksum": "47d7069beb7d6ac7b9acd1039986e73443f24234f41074da099d6f994ac9ad19",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/hashes",
+    "notices": [
+      "cargo/sha2-0.11.1/LICENSE-APACHE",
+      "cargo/sha2-0.11.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "sha3",
+    "version": "0.12.0",
+    "checksum": "bc9bad02c26382724b2d2692c6f179285e4b54eeecd7968f52a50059c3c11759",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/hashes",
+    "notices": [
+      "cargo/sha3-0.12.0/LICENSE-APACHE",
+      "cargo/sha3-0.12.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "shake",
+    "version": "0.1.0",
+    "checksum": "09057cb2149ad4cbd2da1e26b351f9a4c354219421229c69c3063e6f61947c4a",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/XOFs",
+    "notices": [
+      "cargo/shake-0.1.0/LICENSE-APACHE",
+      "cargo/shake-0.1.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "shlex",
+    "version": "2.0.1",
+    "checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "comex <comexk@gmail.com>",
+      "Fenhl <fenhl@fenhl.net>",
+      "Adrian Taylor <adetaylor@chromium.org>",
+      "Alex Touchet <alextouchet@outlook.com>",
+      "Daniel Parks <dp+git@oxidized.org>",
+      "Garrett Berg <googberg@gmail.com>"
+    ],
+    "repository": "https://github.com/comex/rust-shlex",
+    "notices": [
+      "cargo/shlex-2.0.1/LICENSE-APACHE",
+      "cargo/shlex-2.0.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "signature",
+    "version": "3.0.0",
+    "checksum": "28d567dcbaf0049cb8ac2608a76cd95ff9e4412e1899d389ee400918ca7537f5",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/signature-3.0.0/LICENSE-APACHE",
+      "cargo/signature-3.0.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "slab",
+    "version": "0.4.12",
+    "checksum": "0c790de23124f9ab44544d7ac05d60440adc586479ce501c1d6d7da3cd8c9cf5",
+    "license": "MIT",
+    "authors": [
+      "Carl Lerche <me@carllerche.com>"
+    ],
+    "repository": "https://github.com/tokio-rs/slab",
+    "notices": [
+      "cargo/slab-0.4.12/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "socket2",
+    "version": "0.6.5",
+    "checksum": "c3d1e2c7f27f8d4cb10542a02c49005dbd6e93095799d6f3be745fae9f8fedd4",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Alex Crichton <alex@alexcrichton.com>",
+      "Thomas de Zeeuw <thomasdezeeuw@gmail.com>"
+    ],
+    "repository": "https://github.com/rust-lang/socket2",
+    "notices": [
+      "cargo/socket2-0.6.5/LICENSE-APACHE",
+      "cargo/socket2-0.6.5/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "spki",
+    "version": "0.8.1",
+    "checksum": "7ef958a98b9d5da290cfc78946e9f3e61e1e62a18db0d92cac0b83cc161491a9",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/formats",
+    "notices": [
+      "cargo/spki-0.8.1/LICENSE-APACHE",
+      "cargo/spki-0.8.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "sponge-cursor",
+    "version": "0.1.0",
+    "checksum": "3a0219bd7d979d58245a4f41f695e1ac9f8befdffadd7f61f1bae9e39abc6620",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/sponge-cursor-0.1.0/LICENSE-APACHE",
+      "cargo/sponge-cursor-0.1.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ssh-cipher",
+    "version": "0.3.0",
+    "checksum": "d801accda99469cde6d73da741422610fdf6508a72d9a69d1b55cb241c720597",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/SSH",
+    "notices": [
+      "cargo/ssh-cipher-0.3.0/LICENSE-APACHE",
+      "cargo/ssh-cipher-0.3.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ssh-encoding",
+    "version": "0.3.0",
+    "checksum": "7b54d0ed0498daf3f78d82e00e28c8eec9d75a067c4cfbcc7a0f7d0f4077749e",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/SSH",
+    "notices": [
+      "cargo/ssh-encoding-0.3.0/LICENSE-APACHE",
+      "cargo/ssh-encoding-0.3.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "ssh-key",
+    "version": "0.7.0-rc.11",
+    "checksum": "f9a32fae177b74a22aa9c5b01bf7e68b33545be32d9e381e248058d2adc15ce3",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/SSH",
+    "notices": [
+      "cargo/ssh-key-0.7.0-rc.11/LICENSE-APACHE",
+      "cargo/ssh-key-0.7.0-rc.11/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "subtle",
+    "version": "2.6.1",
+    "checksum": "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292",
+    "license": "BSD-3-Clause",
+    "authors": [
+      "Isis Lovecruft <isis@patternsinthevoid.net>",
+      "Henry de Valence <hdevalence@hdevalence.ca>"
+    ],
+    "repository": "https://github.com/dalek-cryptography/subtle",
+    "notices": [
+      "cargo/subtle-2.6.1/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "syn",
+    "version": "2.0.119",
+    "checksum": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/syn",
+    "notices": [
+      "cargo/syn-2.0.119/LICENSE-APACHE",
+      "cargo/syn-2.0.119/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "syn",
+    "version": "3.0.9",
+    "checksum": "d78c8dee4c7bf0e14673097256fed6142ce9d3b85a408189d07482442145823b",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/syn",
+    "notices": [
+      "cargo/syn-3.0.9/LICENSE-APACHE",
+      "cargo/syn-3.0.9/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "thiserror",
+    "version": "1.0.69",
+    "checksum": "b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/thiserror",
+    "notices": [
+      "cargo/thiserror-1.0.69/LICENSE-APACHE",
+      "cargo/thiserror-1.0.69/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "thiserror",
+    "version": "2.0.21",
+    "checksum": "09e52cb86a36cede5cb101bf8908837b3e4c6e5e59fe7fd85c23fb56200d189e",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/thiserror",
+    "notices": [
+      "cargo/thiserror-2.0.21/LICENSE-APACHE",
+      "cargo/thiserror-2.0.21/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "thiserror-impl",
+    "version": "1.0.69",
+    "checksum": "4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/thiserror",
+    "notices": [
+      "cargo/thiserror-impl-1.0.69/LICENSE-APACHE",
+      "cargo/thiserror-impl-1.0.69/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "thiserror-impl",
+    "version": "2.0.21",
+    "checksum": "fe5197923287db20a58125f0bc85c062f7f2c892de97b18c356f9efb14b28524",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/thiserror",
+    "notices": [
+      "cargo/thiserror-impl-2.0.21/LICENSE-APACHE",
+      "cargo/thiserror-impl-2.0.21/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "tokio",
+    "version": "1.54.1",
+    "checksum": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+    "license": "MIT",
+    "authors": [
+      "Tokio Contributors <team@tokio.rs>"
+    ],
+    "repository": "https://github.com/tokio-rs/tokio",
+    "notices": [
+      "cargo/tokio-1.54.1/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "tokio-macros",
+    "version": "2.7.2",
+    "checksum": "78773a2a397f451582ce068015985c33193cf6dea8b74d2a639fe457b2f07b0e",
+    "license": "MIT",
+    "authors": [
+      "Tokio Contributors <team@tokio.rs>"
+    ],
+    "repository": "https://github.com/tokio-rs/tokio",
+    "notices": [
+      "cargo/tokio-macros-2.7.2/LICENSE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "typenum",
+    "version": "1.20.1",
+    "checksum": "b6f5e870be6c3b371b77fe0ee0bafb859fa4964b4404c27de1d380043c4dda20",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/paholg/typenum",
+    "notices": [
+      "cargo/typenum-1.20.1/LICENSE",
+      "cargo/typenum-1.20.1/LICENSE-APACHE",
+      "cargo/typenum-1.20.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "unicode-ident",
+    "version": "1.0.27",
+    "checksum": "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "authors": [
+      "David Tolnay <dtolnay@gmail.com>"
+    ],
+    "repository": "https://github.com/dtolnay/unicode-ident",
+    "notices": [
+      "cargo/unicode-ident-1.0.27/LICENSE-APACHE",
+      "cargo/unicode-ident-1.0.27/LICENSE-MIT",
+      "cargo/unicode-ident-1.0.27/LICENSE-UNICODE"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "universal-hash",
+    "version": "0.6.1",
+    "checksum": "f4987bdc12753382e0bec4a65c50738ffaabc998b9cdd1f952fb5f39b0048a96",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/traits",
+    "notices": [
+      "cargo/universal-hash-0.6.1/LICENSE-APACHE",
+      "cargo/universal-hash-0.6.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "untrusted",
+    "version": "0.9.0",
+    "checksum": "8ecb6da28b8a351d773b68d5825ac39017e680750f980f3a1a85cd8dd28a47c1",
+    "license": "ISC",
+    "authors": [
+      "Brian Smith <brian@briansmith.org>"
+    ],
+    "repository": "https://github.com/briansmith/untrusted",
+    "notices": [
+      "cargo/untrusted-0.9.0/LICENSE.txt"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "walkdir",
+    "version": "2.5.0",
+    "checksum": "29790946404f91d9c5d06f9874efddea1dc06c5efe94541a7d6863108e3a5e4b",
+    "license": "Unlicense/MIT",
+    "authors": [
+      "Andrew Gallant <jamslam@gmail.com>"
+    ],
+    "repository": "https://github.com/BurntSushi/walkdir",
+    "notices": [
+      "cargo/walkdir-2.5.0/COPYING",
+      "cargo/walkdir-2.5.0/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wasi",
+    "version": "0.11.1+wasi-snapshot-preview1",
+    "checksum": "ccf3ec651a847eb01de73ccad15eb7d99f80485de043efb2f370cd654f4ea44b",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "authors": [
+      "The Cranelift Project Developers"
+    ],
+    "repository": "https://github.com/bytecodealliance/wasi",
+    "notices": [
+      "cargo/wasi-0.11.1+wasi-snapshot-preview1/LICENSE-APACHE",
+      "cargo/wasi-0.11.1+wasi-snapshot-preview1/LICENSE-Apache-2.0_WITH_LLVM-exception",
+      "cargo/wasi-0.11.1+wasi-snapshot-preview1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wasm-bindgen",
+    "version": "0.2.130",
+    "checksum": "a0181c14ddd6c7b8b0b0132a5f1ea2f32be0d893cd3ea97b6e3b28886b8a3d1c",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The wasm-bindgen Developers"
+    ],
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen",
+    "notices": [
+      "cargo/wasm-bindgen-0.2.130/LICENSE-APACHE",
+      "cargo/wasm-bindgen-0.2.130/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wasm-bindgen-futures",
+    "version": "0.4.80",
+    "checksum": "5e14e0327cb5368ad60ccb22d04a9827a693c95a926d8d125e9fa39e0baec501",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The wasm-bindgen Developers"
+    ],
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/futures",
+    "notices": [
+      "cargo/wasm-bindgen-futures-0.4.80/LICENSE-APACHE",
+      "cargo/wasm-bindgen-futures-0.4.80/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wasm-bindgen-macro",
+    "version": "0.2.130",
+    "checksum": "6e931a02a39abdbf66966fc35902b5ed58344750a70885bed4ebb3d8eaf28ed9",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The wasm-bindgen Developers"
+    ],
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/macro",
+    "notices": [
+      "cargo/wasm-bindgen-macro-0.2.130/LICENSE-APACHE",
+      "cargo/wasm-bindgen-macro-0.2.130/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wasm-bindgen-macro-support",
+    "version": "0.2.130",
+    "checksum": "2ca4b54280e455bd831e33a6b8e734baf432fe63fbc35c42ac14ce67a043a53a",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The wasm-bindgen Developers"
+    ],
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/main/crates/macro-support",
+    "notices": [
+      "cargo/wasm-bindgen-macro-support-0.2.130/LICENSE-APACHE",
+      "cargo/wasm-bindgen-macro-support-0.2.130/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wasm-bindgen-shared",
+    "version": "0.2.130",
+    "checksum": "3b1f9c3798725016c6ee5f2f57869ec0831e8bbc0ab0310a86e787e97f41389e",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "The wasm-bindgen Developers"
+    ],
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/shared",
+    "notices": [
+      "cargo/wasm-bindgen-shared-0.2.130/LICENSE-APACHE",
+      "cargo/wasm-bindgen-shared-0.2.130/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "winapi-util",
+    "version": "0.1.11",
+    "checksum": "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22",
+    "license": "Unlicense OR MIT",
+    "authors": [
+      "Andrew Gallant <jamslam@gmail.com>"
+    ],
+    "repository": "https://github.com/BurntSushi/winapi-util",
+    "notices": [
+      "cargo/winapi-util-0.1.11/COPYING",
+      "cargo/winapi-util-0.1.11/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows",
+    "version": "0.62.2",
+    "checksum": "527fadee13e0c05939a6a05d5bd6eec6cd2e3dbd648b9f8e447c6518133d8580",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-0.62.2/license-apache-2.0",
+      "cargo/windows-0.62.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-collections",
+    "version": "0.3.2",
+    "checksum": "23b2d95af1a8a14a3c7367e1ed4fc9c20e0a26e79551b1454d72583c97cc6610",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-collections-0.3.2/license-apache-2.0",
+      "cargo/windows-collections-0.3.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-core",
+    "version": "0.62.2",
+    "checksum": "b8e83a14d34d0623b51dce9581199302a221863196a1dde71a7663a4c2be9deb",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-core-0.62.2/license-apache-2.0",
+      "cargo/windows-core-0.62.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-future",
+    "version": "0.3.2",
+    "checksum": "e1d6f90251fe18a279739e78025bd6ddc52a7e22f921070ccdc67dde84c605cb",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-future-0.3.2/license-apache-2.0",
+      "cargo/windows-future-0.3.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-implement",
+    "version": "0.60.2",
+    "checksum": "053e2e040ab57b9dc951b72c264860db7eb3b0200ba345b4e4c3b14f67855ddf",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-implement-0.60.2/license-apache-2.0",
+      "cargo/windows-implement-0.60.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-interface",
+    "version": "0.59.3",
+    "checksum": "3f316c4a2570ba26bbec722032c4099d8c8bc095efccdc15688708623367e358",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-interface-0.59.3/license-apache-2.0",
+      "cargo/windows-interface-0.59.3/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-link",
+    "version": "0.2.1",
+    "checksum": "f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-link-0.2.1/license-apache-2.0",
+      "cargo/windows-link-0.2.1/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-numerics",
+    "version": "0.3.1",
+    "checksum": "6e2e40844ac143cdb44aead537bbf727de9b044e107a0f1220392177d15b0f26",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-numerics-0.3.1/license-apache-2.0",
+      "cargo/windows-numerics-0.3.1/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-result",
+    "version": "0.4.1",
+    "checksum": "7781fa89eaf60850ac3d2da7af8e5242a5ea78d1a11c49bf2910bb5a73853eb5",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-result-0.4.1/license-apache-2.0",
+      "cargo/windows-result-0.4.1/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-strings",
+    "version": "0.5.1",
+    "checksum": "7837d08f69c77cf6b07689544538e017c1bfcf57e34b4c0ff58e6c2cd3b37091",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-strings-0.5.1/license-apache-2.0",
+      "cargo/windows-strings-0.5.1/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.45.0",
+    "checksum": "75283be5efb2831d37ea142365f009c02ec203cd29a3ebecbc093d52315b66d0",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-sys-0.45.0/license-apache-2.0",
+      "cargo/windows-sys-0.45.0/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.52.0",
+    "checksum": "282be5f36a8ce781fad8c8ae18fa3f9beff57ec1b52cb3de0789201425d9a33d",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-sys-0.52.0/license-apache-2.0",
+      "cargo/windows-sys-0.52.0/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.61.2",
+    "checksum": "ae137229bcbd6cdf0f7b80a31df61766145077ddf49416a728b02cb3921ff3fc",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-sys-0.61.2/license-apache-2.0",
+      "cargo/windows-sys-0.61.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-targets",
+    "version": "0.42.2",
+    "checksum": "8e5180c00cd44c9b1c88adb3693291f1cd93605ded80c250a75d472756b4d071",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-targets-0.42.2/license-apache-2.0",
+      "cargo/windows-targets-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-targets",
+    "version": "0.52.6",
+    "checksum": "9b724f72796e036ab90c1021d4780d4d3d648aca59e491e6b98e725b84e99973",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-targets-0.52.6/license-apache-2.0",
+      "cargo/windows-targets-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows-threading",
+    "version": "0.2.1",
+    "checksum": "3949bd5b99cafdf1c7ca86b43ca564028dfe27d66958f2470940f73d86d75b37",
+    "license": "MIT OR Apache-2.0",
+    "authors": [],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows-threading-0.2.1/license-apache-2.0",
+      "cargo/windows-threading-0.2.1/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_aarch64_gnullvm",
+    "version": "0.42.2",
+    "checksum": "597a5118570b68bc08d8d59125332c54f1ba9d9adeedeef5b99b02ba2b0698f8",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_aarch64_gnullvm-0.42.2/license-apache-2.0",
+      "cargo/windows_aarch64_gnullvm-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_aarch64_gnullvm",
+    "version": "0.52.6",
+    "checksum": "32a4622180e7a0ec044bb555404c800bc9fd9ec262ec147edd5989ccd0c02cd3",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_aarch64_gnullvm-0.52.6/license-apache-2.0",
+      "cargo/windows_aarch64_gnullvm-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_aarch64_msvc",
+    "version": "0.42.2",
+    "checksum": "e08e8864a60f06ef0d0ff4ba04124db8b0fb3be5776a5cd47641e942e58c4d43",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_aarch64_msvc-0.42.2/license-apache-2.0",
+      "cargo/windows_aarch64_msvc-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_aarch64_msvc",
+    "version": "0.52.6",
+    "checksum": "09ec2a7bb152e2252b53fa7803150007879548bc709c039df7627cabbd05d469",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_aarch64_msvc-0.52.6/license-apache-2.0",
+      "cargo/windows_aarch64_msvc-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_i686_gnu",
+    "version": "0.42.2",
+    "checksum": "c61d927d8da41da96a81f029489353e68739737d3beca43145c8afec9a31a84f",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_i686_gnu-0.42.2/license-apache-2.0",
+      "cargo/windows_i686_gnu-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_i686_gnu",
+    "version": "0.52.6",
+    "checksum": "8e9b5ad5ab802e97eb8e295ac6720e509ee4c243f69d781394014ebfe8bbfa0b",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_i686_gnu-0.52.6/license-apache-2.0",
+      "cargo/windows_i686_gnu-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_i686_gnullvm",
+    "version": "0.52.6",
+    "checksum": "0eee52d38c090b3caa76c563b86c3a4bd71ef1a819287c19d586d7334ae8ed66",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_i686_gnullvm-0.52.6/license-apache-2.0",
+      "cargo/windows_i686_gnullvm-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_i686_msvc",
+    "version": "0.42.2",
+    "checksum": "44d840b6ec649f480a41c8d80f9c65108b92d89345dd94027bfe06ac444d1060",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_i686_msvc-0.42.2/license-apache-2.0",
+      "cargo/windows_i686_msvc-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_i686_msvc",
+    "version": "0.52.6",
+    "checksum": "240948bc05c5e7c6dabba28bf89d89ffce3e303022809e73deaefe4f6ec56c66",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_i686_msvc-0.52.6/license-apache-2.0",
+      "cargo/windows_i686_msvc-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_x86_64_gnu",
+    "version": "0.42.2",
+    "checksum": "8de912b8b8feb55c064867cf047dda097f92d51efad5b491dfb98f6bbb70cb36",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_x86_64_gnu-0.42.2/license-apache-2.0",
+      "cargo/windows_x86_64_gnu-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_x86_64_gnu",
+    "version": "0.52.6",
+    "checksum": "147a5c80aabfbf0c7d901cb5895d1de30ef2907eb21fbbab29ca94c5b08b1a78",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_x86_64_gnu-0.52.6/license-apache-2.0",
+      "cargo/windows_x86_64_gnu-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_x86_64_gnullvm",
+    "version": "0.42.2",
+    "checksum": "26d41b46a36d453748aedef1486d5c7a85db22e56aff34643984ea85514e94a3",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_x86_64_gnullvm-0.42.2/license-apache-2.0",
+      "cargo/windows_x86_64_gnullvm-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_x86_64_gnullvm",
+    "version": "0.52.6",
+    "checksum": "24d5b23dc417412679681396f2b49f3de8c1473deb516bd34410872eff51ed0d",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_x86_64_gnullvm-0.52.6/license-apache-2.0",
+      "cargo/windows_x86_64_gnullvm-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_x86_64_msvc",
+    "version": "0.42.2",
+    "checksum": "9aec5da331524158c6d1a4ac0ab1541149c0b9505fde06423b02f5ef0106b9f0",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_x86_64_msvc-0.42.2/license-apache-2.0",
+      "cargo/windows_x86_64_msvc-0.42.2/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "windows_x86_64_msvc",
+    "version": "0.52.6",
+    "checksum": "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec",
+    "license": "MIT OR Apache-2.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "repository": "https://github.com/microsoft/windows-rs",
+    "notices": [
+      "cargo/windows_x86_64_msvc-0.52.6/license-apache-2.0",
+      "cargo/windows_x86_64_msvc-0.52.6/license-mit"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "wnaf",
+    "version": "0.14.1",
+    "checksum": "795ca18b3fdb5e62bf982199278341ddcf7ebf7d32e25e212ad05d496e95f6fa",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "RustCrypto Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/elliptic-curves",
+    "notices": [
+      "cargo/wnaf-0.14.1/LICENSE-APACHE",
+      "cargo/wnaf-0.14.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  },
+  {
+    "name": "zeroize",
+    "version": "1.9.1",
+    "checksum": "e13084392c5e4bc371903e2935a5eaeed24905a7511356b883835e18a78f6879",
+    "license": "Apache-2.0 OR MIT",
+    "authors": [
+      "The RustCrypto Project Developers"
+    ],
+    "repository": "https://github.com/RustCrypto/utils",
+    "notices": [
+      "cargo/zeroize-1.9.1/LICENSE-APACHE",
+      "cargo/zeroize-1.9.1/LICENSE-MIT"
+    ],
+    "license_text_fallback": null
+  }
+]

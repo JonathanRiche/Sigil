@@ -1,0 +1,16 @@
+[package]
+name = "gliff-android-core"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "gliff_android_core"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+jni = "=0.21.1"
+minicbor = { version = "=2.3.1", features = ["std"] }
+russh = { version = "=0.65.1", default-features = false, features = ["ring", "rsa"] }
+tokio = { version = "=1.54.1", features = ["rt-multi-thread", "macros", "net", "io-util", "sync", "time"] }
+zeroize = "=1.9.1"
