@@ -13,6 +13,8 @@ The desktop needs a running Hyprland session, `gliff-server` on the remote user'
 3. On first connection, review the SHA256 host fingerprint and explicitly choose whether to trust it. Compare it through an independent trusted channel when available. Discovery disconnects before authentication; acceptance saves the pin for that host and port, then retries. A changed saved key fails rather than being silently replaced.
 4. Complete any Tailscale browser approval requested by the server, then connect.
 
+If the host is sleeping or the network is unavailable, the initial connection retries automatically for up to three minutes. Short TCP/key-exchange attempts replace stale connections, and keyless authentication retries if no response or approval request arrives. A displayed Tailscale approval stays on the same authentication attempt. Cancel stops retries immediately. This waits for reachability; it does not send Wake-on-LAN packets.
+
 Mirroring the existing desktop is the default. Advanced settings retain an optional private screen. The fixed server commands are `gliff-server --stdio --output auto --low-bandwidth` and, for private mode, `gliff-server --stdio --headless --low-bandwidth`. Selecting an existing display reconnects with its validated connector name; it does not reconfigure the host monitor.
 
 Conventional SSH key authentication is an advanced option. Imported keys must be unencrypted OpenSSH/PEM keys; the app encrypts its stored copy with Android Keystore. Encrypted input keys, password authentication, ambient SSH agents and automatic host-key replacement are unsupported.
@@ -36,7 +38,7 @@ There is no audio streaming, file/image clipboard, full IME composition, automat
 
 See [BUILDING.md](BUILDING.md) for Linux build instructions using your own toolchains. Android 11/API 30 or newer is required; builds include ARM64 and x86_64.
 
-Download the APK from [GitHub Releases](https://github.com/JonathanRiche/Sigil/releases). Version 0.1.0-preview.1 is explicitly a **debug-signed experimental preview**, not a production build. A future production signing key may require uninstalling this preview, which removes saved app data. Checksums and dependency notices accompany the APK. No production-signing or comprehensive compatibility claim is made.
+Download the APK from [GitHub Releases](https://github.com/JonathanRiche/Sigil/releases). Version 0.1.0-preview.2 is explicitly a **debug-signed experimental preview**, not a production build. A future production signing key may require uninstalling this preview, which removes saved app data. Checksums and dependency notices accompany the APK. No production-signing or comprehensive compatibility claim is made.
 
 ## Upstream and licensing
 

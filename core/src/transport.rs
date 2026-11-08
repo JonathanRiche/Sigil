@@ -83,7 +83,7 @@ struct PinnedHost {
     rejected: Arc<AtomicBool>,
     verified: bool,
     events: Option<mpsc::Sender<Vec<u8>>>,
-    approval_sent: bool,
+    approval_sent: Arc<AtomicBool>,
 }
 fn approval_url(banner: &str) -> Option<&str> {
     if banner.len() > 8192 {
@@ -134,10 +134,10 @@ impl client::Handler for PinnedHost {
     ) -> Result<(), Self::Error> {
         // Tailscale check mode holds `none` authentication and sends its approval
         // link in SSH_MSG_USERAUTH_BANNER. Never open a browser automatically.
-        if self.verified && !self.approval_sent {
+        if self.verified && !self.approval_sent.load(Ordering::Relaxed) {
             if let (Some(events), Some(url)) = (&self.events, approval_url(banner)) {
                 if events.try_send(session::text_event(7, url)).is_ok() {
-                    self.approval_sent = true;
+                    self.approval_sent.store(true, Ordering::Relaxed);
                 }
             }
         }
@@ -270,6 +270,7 @@ async fn establish<S: tokio::io::AsyncRead + tokio::io::AsyncWrite + Unpin + Sen
         ..Default::default()
     };
     let discovered = Arc::new(AtomicBool::new(false));
+    let approval_sent = Arc::new(AtomicBool::new(false));
     let handler = PinnedHost {
         fingerprint: if options.fingerprint.is_empty() {
             None
@@ -280,19 +281,23 @@ async fn establish<S: tokio::io::AsyncRead + tokio::io::AsyncWrite + Unpin + Sen
         rejected: rejected.clone(),
         verified: false,
         events,
-        approval_sent: false,
+        approval_sent: approval_sent.clone(),
     };
-    let mut handle = client::connect_stream(Arc::new(config), stream, handler)
-        .await
-        .map_err(|_| {
-            if discovered.load(Ordering::Relaxed) {
-                HOST_KEY_DISCOVERY
-            } else if rejected.load(Ordering::Relaxed) {
-                "SSH host fingerprint mismatch or unsupported certificate"
-            } else {
-                "SSH connection or key exchange failed"
-            }
-        })?;
+    let mut handle = tokio::time::timeout(
+        Duration::from_secs(10),
+        client::connect_stream(Arc::new(config), stream, handler),
+    )
+    .await
+    .map_err(|_| "SSH key exchange timed out")?
+    .map_err(|_| {
+        if discovered.load(Ordering::Relaxed) {
+            HOST_KEY_DISCOVERY
+        } else if rejected.load(Ordering::Relaxed) {
+            "SSH host fingerprint mismatch or unsupported certificate"
+        } else {
+            "SSH connection or key exchange failed"
+        }
+    })?;
     if let Some(key) = key {
         let hash = if key.algorithm().is_rsa() {
             Some(
@@ -319,10 +324,17 @@ async fn establish<S: tokio::io::AsyncRead + tokio::io::AsyncWrite + Unpin + Sen
     } else {
         // Tailscale SSH authenticates the peer's tailnet identity, using SSH
         // method `none`; this is server authorization, not an accept-any bypass.
-        let result = handle
-            .authenticate_none(options.user.as_str())
-            .await
-            .map_err(|_| "Tailscale SSH authentication failed")?;
+        let authentication = handle.authenticate_none(options.user.as_str());
+        tokio::pin!(authentication);
+        let result = match tokio::time::timeout(Duration::from_secs(12), &mut authentication).await
+        {
+            Ok(result) => result,
+            // Keep the SAME authentication pending while the human approves it.
+            // The outer setup deadline and cancellation still bound this wait.
+            Err(_) if approval_sent.load(Ordering::Relaxed) => authentication.await,
+            Err(_) => return Err("SSH authentication response timed out"),
+        }
+        .map_err(|_| "Tailscale SSH authentication failed")?;
         if !result.success() {
             return Err(
                 "Tailscale SSH rejected keyless authentication; check tailnet policy and user",
@@ -402,33 +414,61 @@ pub(crate) async fn run_with_desktop(
                     .map_err(|_| "private key format unsupported or key is encrypted")?,
             )
         };
-        let stream = tokio::net::TcpStream::connect((options.host.as_str(), options.port))
-            .await
-            .map_err(|_| "SSH TCP connection failed")?;
-        stream
-            .set_nodelay(true)
-            .map_err(|_| "SSH TCP setup failed")?;
-        let (stream, lifetime) = controlled_io(stream);
-        io_lifetime = Some(lifetime);
-        establish(
-            stream,
-            &options,
-            key,
-            rejected.clone(),
-            Some(events.clone()),
-        )
-        .await
+        let mut attempt = 0u32;
+        loop {
+            attempt += 1;
+            // A stale SYN/KEX can outlive host wake-up. Replace the connection
+            // instead of making the user cancel and reopen the whole session.
+            let result = async {
+                let stream = tokio::time::timeout(
+                    Duration::from_secs(8),
+                    tokio::net::TcpStream::connect((options.host.as_str(), options.port)),
+                )
+                .await
+                .map_err(|_| "SSH TCP connection timed out")?
+                .map_err(|_| "SSH TCP connection failed")?;
+                stream
+                    .set_nodelay(true)
+                    .map_err(|_| "SSH TCP setup failed")?;
+                let (stream, lifetime) = controlled_io(stream);
+                io_lifetime = Some(lifetime);
+                establish(
+                    stream,
+                    &options,
+                    key.clone(),
+                    rejected.clone(),
+                    Some(events.clone()),
+                )
+                .await
+            }
+            .await;
+            match result {
+                Ok(connection) => break Ok(connection),
+                Err(error)
+                    if matches!(
+                        error,
+                        "SSH TCP connection timed out"
+                            | "SSH TCP connection failed"
+                            | "SSH key exchange timed out"
+                            | "SSH connection or key exchange failed"
+                            | "SSH authentication response timed out"
+                            | "Tailscale SSH authentication failed"
+                    ) =>
+                {
+                    // Terminate any detached russh KEX IO before retrying.
+                    drop(io_lifetime.take());
+                    let _ = events.try_send(session::text_event(
+                        1,
+                        &format!("Connecting… waiting for host or network (attempt {attempt})"),
+                    ));
+                    tokio::time::sleep(Duration::from_secs(2)).await;
+                }
+                Err(error) => break Err(error), // trust, auth and exec failures are terminal
+            }
+        }
     };
-    let Some((handle, stream)) = setup_or_cancel(
-        setup,
-        &mut cancel,
-        if options.private_key.is_empty() {
-            Duration::from_secs(180)
-        } else {
-            Duration::from_secs(25)
-        },
-    )
-    .await?
+    let Some((handle, stream)) =
+        setup_or_cancel(setup, &mut cancel, Duration::from_secs(180)).await?
     else {
         return Ok(());
     };
@@ -473,7 +513,7 @@ mod tests {
             rejected: Arc::new(AtomicBool::new(false)),
             verified: false,
             events: None,
-            approval_sent: false,
+            approval_sent: Arc::new(AtomicBool::new(false)),
         };
         assert!(host.accepts(&key.into()));
         let other = keys::PublicKey::from_openssh(

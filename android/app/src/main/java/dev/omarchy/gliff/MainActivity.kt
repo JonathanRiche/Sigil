@@ -310,7 +310,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         sessionLabel.text = if (localTest && running.get()) "Local diagnostics" else if (running.get()) activeSessionLabel else if (name.isEmpty()) "Sigil" else if (username.isEmpty()) name else "$username@$name"
         statusDot.setTextColor(if (ready) 0xff71dfa3.toInt() else 0xff747474.toInt())
         statusDot.contentDescription = if (ready) "Connected" else "Not connected"
-        idleLabel.text = if (running.get() && !localTest) { if (ready) "Waiting for desktop…" else "Connecting…" } else "Not connected"
+        idleLabel.text = if (running.get() && !localTest) { if (ready) "Waiting for desktop…" else status.text.toString().takeIf { it.startsWith("Connecting") } ?: "Connecting…" } else "Not connected"
         idleLabel.visibility = if (cover.visibility == View.VISIBLE && !localTest) View.VISIBLE else View.GONE
         diagnosticsLabel.visibility = if (localTest && running.get()) View.VISIBLE else View.GONE
         refreshSetupState()
