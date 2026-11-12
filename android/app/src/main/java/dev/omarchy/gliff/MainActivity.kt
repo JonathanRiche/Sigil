@@ -69,6 +69,10 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
     private lateinit var sessionLabel: TextView
     private lateinit var statusDot: TextView
     private lateinit var idleLabel: TextView
+    private lateinit var idlePanel: LinearLayout
+    private lateinit var idleHint: TextView
+    private lateinit var idleAction: TextView
+    private lateinit var topBar: LinearLayout
     private lateinit var diagnosticsLabel: TextView
     private lateinit var tray: LinearLayout
     private lateinit var trayButton: ImageButton
@@ -123,46 +127,53 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
     private fun rounded(color: Int, radius: Int = 8) = android.graphics.drawable.GradientDrawable().apply {
         setColor(color); cornerRadius = dp(radius).toFloat()
     }
+    private fun pressable(color: Int, radius: Int) = android.graphics.drawable.RippleDrawable(
+        android.content.res.ColorStateList.valueOf(0x30ffffff),rounded(color,radius),rounded(android.graphics.Color.WHITE,radius))
+    private fun medium() = android.graphics.Typeface.create("sans-serif-medium",android.graphics.Typeface.NORMAL)
     private fun quietButton(label: String, action: () -> Unit) = Button(this).apply {
-        text = label; isAllCaps = false; setSingleLine(true); textSize = 13f
-        setTextColor(0xffcccccc.toInt()); minimumWidth = 0; minWidth = 0
+        text = label; isAllCaps = false; setSingleLine(true); textSize = 13f; typeface = medium()
+        setTextColor(0xffe2e2e8.toInt()); minimumWidth = 0; minWidth = 0; minimumHeight = 0; minHeight = 0
+        stateListAnimator = null; elevation = 0f
+        // Inset the fill so adjacent controls keep a visible gap inside their 48dp touch targets.
+        background = android.graphics.drawable.InsetDrawable(pressable(0xff232327.toInt(),12),dp(3),dp(4),dp(3),dp(4))
         setPadding(dp(12),0,dp(12),0); setOnClickListener { action() }
     }
     private fun chromeButton(icon: String, description: String, action: () -> Unit) = ImageButton(this).apply {
-        setImageDrawable(ChromeIcon(icon,resources.displayMetrics.density))
-        contentDescription = description; background = android.graphics.drawable.RippleDrawable(
+        setImageDrawable(DeckIcon(icon,resources.displayMetrics.density,0xffc4c4cc.toInt()))
+        contentDescription = description; tooltipText = description; background = android.graphics.drawable.RippleDrawable(
             android.content.res.ColorStateList.valueOf(0x33ffffff),null,null)
         setOnClickListener { action() }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = 0xff202020.toInt(); window.navigationBarColor = android.graphics.Color.BLACK
+        window.statusBarColor = 0xff060607.toInt(); window.navigationBarColor = 0xff060607.toInt()
         keys = ImportedKey(this)
-        val root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(android.graphics.Color.BLACK) }
+        val root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; background = rootFill }
         root.setOnApplyWindowInsetsListener { view, insets ->
             val bars = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
+            navigationInset = bars.bottom; rootFill.invalidateSelf()
             view.setPadding(bars.left,bars.top,bars.right,bars.bottom); insets
         }
-        val top = LinearLayout(this).apply { gravity = Gravity.CENTER_VERTICAL; setPadding(dp(6),0,0,0); setBackgroundColor(0xff202020.toInt()) }
+        val top = LinearLayout(this).apply { gravity = Gravity.CENTER_VERTICAL; setPadding(dp(8),0,dp(2),0); setBackgroundColor(0xff060607.toInt()) }
+        topBar = top
         val chip = LinearLayout(this).apply {
-            gravity = Gravity.CENTER_VERTICAL; setPadding(dp(12),0,dp(12),0)
-            background = rounded(0xff303030.toInt()); isClickable = true; isFocusable = true
+            gravity = Gravity.CENTER_VERTICAL; setPadding(dp(14),0,dp(14),0)
+            background = pressable(0xff18181b.toInt(),14); isClickable = true; isFocusable = true
             contentDescription = "Current session and connection setup"
             setOnClickListener { showConnection() }
         }
         sessionLabel = TextView(this).apply {
-            textSize = 14f; setTextColor(0xffbbbbbb.toInt()); setTypeface(typeface,android.graphics.Typeface.BOLD)
+            textSize = 14f; setTextColor(0xffe6e6ea.toInt()); typeface = medium()
             isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END
         }
-        statusDot = TextView(this).apply { text = "●"; textSize = 11f; setPadding(dp(8),0,0,0) }
-        chip.addView(sessionLabel,LinearLayout.LayoutParams(0,-2,1f)); chip.addView(statusDot)
-        top.addView(chip,LinearLayout.LayoutParams(0,dp(48),1f).apply { topMargin = dp(4); bottomMargin = dp(4) })
-        top.addView(chromeButton("plus","Connection setup") { showConnection() },LinearLayout.LayoutParams(dp(48),dp(48)))
-        trayButton = chromeButton("controls","Show controls") { toggleTray() }
+        statusDot = TextView(this).apply { text = "●"; textSize = 10f; setPadding(0,0,dp(10),0) }
+        chip.addView(statusDot); chip.addView(sessionLabel,LinearLayout.LayoutParams(0,-2,1f))
+        top.addView(chip,LinearLayout.LayoutParams(0,dp(40),1f).apply { rightMargin = dp(4) })
+        trayButton = chromeButton("settings","Show controls") { toggleTray() }
         top.addView(trayButton,LinearLayout.LayoutParams(dp(48),dp(48)))
         fullscreenButton = chromeButton("fullscreen","Enter fullscreen") { toggleFullscreen() }
         top.addView(fullscreenButton,LinearLayout.LayoutParams(dp(48),dp(48)))
-        root.addView(top,LinearLayout.LayoutParams(-1,dp(56)))
+        root.addView(top,LinearLayout.LayoutParams(-1,dp(52)))
 
         status = TextView(this).apply { textSize = 13f; setTextColor(0xffaaaaaa.toInt()); setPadding(0,dp(16),0,dp(12)); text = if (NativeCore.available) "Disconnected" else "Native core unavailable" }
         val form = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(20),dp(4),dp(20),dp(8)) }
@@ -172,9 +183,9 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
                 setTextColor(0xffeeeeee.toInt()); setHintTextColor(0xff777777.toInt()); textSize = 15f
                 inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
                 importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
-                minimumHeight = dp(48)
+                minimumHeight = dp(48); background = rounded(0xff232327.toInt(),12); setPadding(dp(14),0,dp(14),0)
             }
-            parent.addView(TextView(this).apply { text = label; textSize = 12f; setTextColor(0xff999999.toInt()); labelFor = input.id; setPadding(0,dp(12),0,0) })
+            parent.addView(TextView(this).apply { text = label; textSize = 12f; setTextColor(0xff9a9aa4.toInt()); labelFor = input.id; setPadding(dp(2),dp(12),0,dp(6)) })
             parent.addView(input); return input
         }
         val prefs = getSharedPreferences("connection", MODE_PRIVATE)
@@ -236,8 +247,21 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
             addView(desktopViewport,FrameLayout.LayoutParams(-1,-1))
             cover = View(this@MainActivity).apply { setBackgroundColor(android.graphics.Color.BLACK) }
             addView(cover,FrameLayout.LayoutParams(-1,-1))
-            idleLabel = TextView(this@MainActivity).apply { text = "Not connected"; textSize = 16f; gravity = Gravity.CENTER; setTextColor(0xff8f8f8f.toInt()) }
-            addView(idleLabel,FrameLayout.LayoutParams(-1,-1))
+            idleLabel = TextView(this@MainActivity).apply { text = "Not connected"; textSize = 17f; gravity = Gravity.CENTER; setTextColor(0xffe6e6ea.toInt()); typeface = medium() }
+            idleHint = TextView(this@MainActivity).apply { text = "Mirror and control your desktop over SSH"; textSize = 13f; gravity = Gravity.CENTER; setTextColor(0xff8a8a94.toInt()) }
+            idleAction = TextView(this@MainActivity).apply {
+                textSize = 14f; gravity = Gravity.CENTER; typeface = medium(); setPadding(dp(26),0,dp(26),0)
+                isClickable = true; isFocusable = true
+                setOnClickListener { if (running.get()) stopSession("Connection cancelled") else showConnection() }
+            }
+            idlePanel = LinearLayout(this@MainActivity).apply {
+                orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER; setPadding(dp(24),0,dp(24),0)
+                addView(ImageView(this@MainActivity).apply { setImageDrawable(DeckIcon("sigil",resources.displayMetrics.density,0xff2fc6c8.toInt())); importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO },LinearLayout.LayoutParams(dp(40),dp(40)).apply { bottomMargin = dp(10) })
+                addView(idleLabel,LinearLayout.LayoutParams(-2,-2))
+                addView(idleHint,LinearLayout.LayoutParams(-2,-2).apply { topMargin = dp(4) })
+                addView(idleAction,LinearLayout.LayoutParams(-2,dp(44)).apply { topMargin = dp(16) })
+            }
+            addView(idlePanel,FrameLayout.LayoutParams(-1,-1))
             diagnosticsLabel = TextView(this@MainActivity).apply {
                 text = "LOCAL DECODER TEST · NO NETWORK"; textSize = 11f; setTextColor(0xffd7b873.toInt())
                 setPadding(dp(12),dp(8),dp(12),dp(8)); visibility = View.GONE
@@ -254,7 +278,8 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
             // ViewGroup dispatch still offers events to child controls first. Clickability makes
             // unhandled padding/gap events stop here instead of reaching the SurfaceView below.
             isClickable = true
-            orientation = LinearLayout.VERTICAL; setPadding(dp(8),dp(6),dp(8),dp(6)); background = rounded(0xf2252525.toInt(),12); visibility = View.GONE }
+            orientation = LinearLayout.VERTICAL; setPadding(dp(8),dp(6),dp(8),dp(6)); visibility = View.GONE
+            background = android.graphics.drawable.GradientDrawable().apply { setColor(0xf20e0e10.toInt()); cornerRadius = dp(20).toFloat(); setStroke(maxOf(1,dp(1)/2),0x26ffffff) } }
         val shortcuts = LinearLayout(this)
         for ((label,code) in shortcutKeys) {
             shortcuts.addView(quietButton(label) {
@@ -272,7 +297,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
                     }
                     true
                 }
-            },LinearLayout.LayoutParams(dp(60),dp(48)))
+            },LinearLayout.LayoutParams(dp(64),dp(48)))
         }
         tray.addView(HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; addView(shortcuts) },LinearLayout.LayoutParams(-1,dp(48)))
         val actions = LinearLayout(this)
@@ -295,7 +320,9 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
             remote = { kind,identity -> performRemote(kind,identity) }, refresh = { queryDesktop() },
             displays = { selectDisplay() }, connection = { showConnection() },
             startVoice = { seed -> beginDictation(seed) }, cancelVoice = { if(::voice.isInitialized) voice.cancel() },
-            viewport = { factor,dx,dy -> desktopViewport.transform(factor,dx,dy) }, notice = { text -> message(text) }
+            viewport = { factor,dx,dy -> desktopViewport.transform(factor,dx,dy) }, notice = { text -> message(text) },
+            disconnect = { stopSession("Disconnected") }, fullscreen = { toggleFullscreen() },
+            appearance = { refreshSystemBars() }
         ).apply { visibility = View.GONE }
         display.addView(flexControls,FrameLayout.LayoutParams(-1,0))
         root.addView(display,LinearLayout.LayoutParams(-1,0,1f))
@@ -303,15 +330,44 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         foldObserver = FoldLayoutObserver(this) { posture -> tabletopHinge = posture.horizontalBounds; innerDisplay = posture.inner; reportedTabletop = posture.tabletop; updateFlexLayout() }
         setContentView(root); root.requestApplyInsets(); refreshChrome()
     }
+    private var navigationInset = 0
+    /** Dark app background whose navigation-bar strip continues the control deck when it is open. */
+    private val rootFill = object : android.graphics.drawable.ColorDrawable(0xff060607.toInt()) {
+        private val paint = android.graphics.Paint()
+        override fun draw(canvas: android.graphics.Canvas) {
+            super.draw(canvas)
+            if (flexActive && navigationInset > 0) {
+                paint.color = DeckTheme.of(this@MainActivity).deck
+                canvas.drawRect(0f,(bounds.bottom-navigationInset).toFloat(),bounds.right.toFloat(),bounds.bottom.toFloat(),paint)
+            }
+        }
+    }
+    private fun refreshSystemBars() {
+        rootFill.invalidateSelf()
+        val light = flexActive && !DeckTheme.of(this).dark
+        window.peekDecorView()?.windowInsetsController?.setSystemBarsAppearance(if (light) WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS else 0,WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS)
+    }
     private fun refreshChrome() {
         if (!::sessionLabel.isInitialized) return
         val ready = state.ready(state.token()) && handle != 0L
         val name = host.text.toString().trim(); val username = user.text.toString().trim()
         sessionLabel.text = if (localTest && running.get()) "Local diagnostics" else if (running.get()) activeSessionLabel else if (name.isEmpty()) "Sigil" else if (username.isEmpty()) name else "$username@$name"
-        statusDot.setTextColor(if (ready) 0xff71dfa3.toInt() else 0xff747474.toInt())
+        val connecting = running.get() && !localTest
+        statusDot.setTextColor(if (ready) 0xff2fc6c8.toInt() else if (connecting) 0xffe0b25a.toInt() else 0xff5c5c66.toInt())
         statusDot.contentDescription = if (ready) "Connected" else "Not connected"
-        idleLabel.text = if (running.get() && !localTest) { if (ready) "Waiting for desktop…" else status.text.toString().takeIf { it.startsWith("Connecting") } ?: "Connecting…" } else "Not connected"
-        idleLabel.visibility = if (cover.visibility == View.VISIBLE && !localTest) View.VISIBLE else View.GONE
+        // Retry detail ("waiting for host or network (attempt 3)") reads as a subtitle, not a headline.
+        val progress = status.text.toString().takeIf { !ready && it.startsWith("Connecting") }?.removePrefix("Connecting…")?.removePrefix("Connecting...")?.trim().orEmpty()
+        idleLabel.text = if (connecting) { if (ready) "Waiting for desktop…" else "Connecting…" } else "Not connected"
+        idleHint.text = if (!connecting) "Mirror and control your desktop over SSH" else if (progress.isEmpty()) activeSessionLabel else "$activeSessionLabel · $progress"
+        idleAction.text = if (connecting) "Cancel" else "Connect"
+        idleAction.setTextColor(if (connecting) 0xffe2e2e8.toInt() else 0xff04292a.toInt())
+        idleAction.background = pressable(if (connecting) 0xff232327.toInt() else 0xff2fc6c8.toInt(),22)
+        idleAction.visibility = if (connecting && ready) View.GONE else View.VISIBLE
+        idlePanel.visibility = if (cover.visibility == View.VISIBLE && !localTest) View.VISIBLE else View.GONE
+        // With the control deck open, a live session takes the whole upper pane. Connection,
+        // fullscreen and disconnect stay reachable from the deck's settings button. Keyed on
+        // session readiness, not the transition cover, so a resize cannot toggle it repeatedly.
+        topBar.visibility = if (flexActive && ready && !localTest) View.GONE else View.VISIBLE
         diagnosticsLabel.visibility = if (localTest && running.get()) View.VISIBLE else View.GONE
         refreshSetupState()
     }
@@ -339,6 +395,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
                 dialog.setOnShowListener {
                     dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setOnClickListener { connect() }
                     refreshSetupState(dialog)
+                    dialog.window?.setBackgroundDrawable(rounded(0xff131316.toInt(),26))
                     dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
                     resizeConnectionDialog()
                     dialog.window?.setLayout(minOf(dp(480),resources.displayMetrics.widthPixels-dp(24)),WindowManager.LayoutParams.WRAP_CONTENT)
@@ -857,7 +914,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         desktopViewport.layoutParams = FrameLayout.LayoutParams(upper.width(),upper.height(),Gravity.TOP or Gravity.LEFT)
         val coverParams = FrameLayout.LayoutParams(upper.width(),upper.height(),Gravity.TOP or Gravity.LEFT)
         cover.layoutParams = coverParams
-        idleLabel.layoutParams = FrameLayout.LayoutParams(upper.width(),upper.height(),Gravity.TOP or Gravity.LEFT)
+        idlePanel.layoutParams = FrameLayout.LayoutParams(upper.width(),upper.height(),Gravity.TOP or Gravity.LEFT)
         (tray.layoutParams as FrameLayout.LayoutParams).let { params ->
             val margin = display.height-upper.bottom+dp(8)
             if (params.bottomMargin != margin) { params.bottomMargin = margin; tray.layoutParams = params }
@@ -866,6 +923,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         if (changed) {
             android.util.Log.i("GliffFlex","active=$active source=${if (actual && reportedTabletop) "horizontal-half-opened" else if (innerDisplay) "flat-inner" else if (active) "manual" else "flat"} desktop=${upper.width()}x${upper.height()} lowerTop=${lower.top} lowerHeight=${lower.height()}")
             ui.removeCallbacks(resize); ui.postDelayed(resize,200)
+            refreshChrome(); refreshSystemBars()
         }
     }
     private fun fitSurface(geometry: SessionState.Geometry) { desktopViewport.fit(geometry) }
@@ -921,6 +979,11 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0) held.set(2,code,"physical:${event.keyCode}",true)
         if (event.action == KeyEvent.ACTION_UP) held.set(2,code,"physical:${event.keyCode}",false)
         return true
+    }
+    override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+        super.onConfigurationChanged(newConfig)
+        // System light/dark changes repaint the deck in place instead of recreating the session.
+        if (::flexControls.isInitialized) flexControls.refreshTheme()
     }
     override fun onStart() { super.onStart(); foldObserver.start() }
     override fun onStop() { foldObserver.stop(); super.onStop() }

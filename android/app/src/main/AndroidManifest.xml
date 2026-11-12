@@ -4,7 +4,7 @@
     <queries><intent><action android:name="android.speech.RecognitionService" /></intent></queries>
     <application android:label="Sigil" android:theme="@android:style/Theme.Material.NoActionBar"
         android:allowBackup="false" android:supportsRtl="true">
-        <activity android:name=".MainActivity" android:exported="true" android:resizeableActivity="true" android:configChanges="orientation|screenSize|smallestScreenSize|keyboardHidden"
+        <activity android:name=".MainActivity" android:exported="true" android:resizeableActivity="true" android:configChanges="orientation|screenSize|smallestScreenSize|keyboardHidden|uiMode"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

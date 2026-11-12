@@ -23,6 +23,7 @@ Conventional SSH key authentication is an advanced option. Imported keys must be
 
 - Desktop video, direct touch input, relative pointer controls and explicit text clipboard sharing.
 - Tabletop/Flex layout with desktop above and controls below, plus a manual layout option where posture reporting is unavailable.
+- A keyboard-deck control surface: sculpted keys, icon side rails, a named app dock and an inset trackpad, in graphite or aluminium (follows the system theme, or set it from the deck's settings button). During a live session with the deck open, the top bar is hidden; connection, fullscreen and disconnect are in the deck's settings menu.
 - Standard and Split on-screen US keyboards, saved layout preference and physical keyboard support.
 - New metadata-backed app dock, window focus, workspace navigation/overview, display selection and remote battery status.
 - New remote volume, media, brightness and launcher controls, with unavailable actions reported rather than simulated.
@@ -38,7 +39,7 @@ There is no audio streaming, file/image clipboard, full IME composition, automat
 
 See [BUILDING.md](BUILDING.md) for Linux build instructions using your own toolchains. Android 11/API 30 or newer is required; builds include ARM64 and x86_64.
 
-Download the APK from [GitHub Releases](https://github.com/JonathanRiche/Sigil/releases). Version 0.1.0-preview.2 is explicitly a **debug-signed experimental preview**, not a production build. A future production signing key may require uninstalling this preview, which removes saved app data. Checksums and dependency notices accompany the APK. No production-signing or comprehensive compatibility claim is made.
+Download the APK from [GitHub Releases](https://github.com/JonathanRiche/Sigil/releases). Version 0.1.0-preview.3 is explicitly a **debug-signed experimental preview**, not a production build. A future production signing key may require uninstalling this preview, which removes saved app data. Checksums and dependency notices accompany the APK. No production-signing or comprehensive compatibility claim is made.
 
 ## Upstream and licensing
 

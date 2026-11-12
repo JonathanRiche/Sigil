@@ -54,7 +54,7 @@ The NDK compiler targets API 29, while the app minimum is API 30. This command b
 
 Output: `android/app/build/outputs/apk/debug/app-debug.apk`. This is a debug-signed preview. `assembleRelease` has no configured release signing identity; it does not establish an installable signed release. Do not publish a local debug keystore as a release key.
 
-Package ID is currently `dev.omarchy.gliff`; the app label is Sigil. The current version is `0.1.0-preview.2` (version code 3). Renaming the package would create a different installed app and would not automatically migrate remembered host trust or imported keys.
+Package ID is currently `dev.omarchy.gliff`; the app label is Sigil. The current version is `0.1.0-preview.3` (version code 4). Renaming the package would create a different installed app and would not automatically migrate remembered host trust or imported keys.
 
 ## Existing local helper scripts
 
