@@ -28,7 +28,7 @@ class LaptopControls(
     private val viewport: (Float,Float,Float) -> Unit,
     private val notice: (String) -> Unit,
     private val disconnect: () -> Unit,private val fullscreen: () -> Unit,
-    private val appearance: () -> Unit
+    private val appearance: () -> Unit,private val zoom: () -> Unit
 ) : LinearLayout(context) {
     private val preferences = context.getSharedPreferences("controls",Context.MODE_PRIVATE)
     private var theme = DeckTheme.of(context)
@@ -53,6 +53,7 @@ class LaptopControls(
     private var insert: KeyView? = null
     private var settingsKey: View = this
     private var volumeKey: View = this
+    private var brightnessKey: View = this
     private var modeKey: KeyView? = null
     private var micKey: KeyView? = null
     private var textDraft = ""
@@ -73,54 +74,54 @@ class LaptopControls(
         setOnClickListener { performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY); run() }
     }
     init {
-        isClickable = true; setPadding(dp(6),dp(6),dp(6),dp(8))
-        leading.isClickable = true; trailing.isClickable = true; strip.isClickable = true
-        center.orientation = VERTICAL; center.isClickable = true
+        orientation = VERTICAL; isClickable = true; setPadding(dp(12),dp(10),dp(12),dp(12))
+        leading.isClickable = true; trailing.isClickable = true; strip.isClickable = true; center.isClickable = true
+        strip.gravity = Gravity.CENTER_VERTICAL
         dock.isClickable = true; dock.isHorizontalScrollBarEnabled = false; dock.isFillViewport = true; dock.addView(dockApps)
         dockApps.gravity = Gravity.CENTER_VERTICAL
-        center.addView(dock,LayoutParams(-1,dp(44)))
-        body.isClickable = true; center.addView(body,LayoutParams(-1,0,1f))
-        padArea.isClickable = true
-        padArea.addView(pad,FrameLayout.LayoutParams(-1,-1).apply { setMargins(dp(2),dp(2),dp(2),dp(2)) })
+        body.isClickable = true
+        padArea.isClickable = true; padArea.addView(pad,FrameLayout.LayoutParams(-1,-1))
         body.addView(padArea,FrameLayout.LayoutParams(-1,-1))
         keyboardArea.orientation = VERTICAL; keyboardArea.isClickable = true; keyboardArea.visibility = GONE
         keyboardArea.addView(HorizontalScrollView(context).apply { isFillViewport = true; isHorizontalScrollBarEnabled = false; addView(shortcuts,FrameLayout.LayoutParams(-1,-1)) },LayoutParams(-1,dp(40)))
         keyboard = LaptopKeyboard(context,ready,key,release,text,layoutChanged,theme)
         keyboardArea.addView(keyboard,LayoutParams(-1,0,1f))
         body.addView(keyboardArea,FrameLayout.LayoutParams(-1,-1))
+        // Dictation drops over the top of the keyboard as a dark fade; the keys stay visible
+        // underneath but the overlay consumes their touches until it is closed.
         dictation.isClickable = true; dictation.visibility = GONE
-        voicePanel.orientation = VERTICAL; voicePanel.setPadding(dp(12),dp(4),dp(12),dp(4))
-        speechStatus.apply { text = "Dictation"; textSize = 13f; gravity = Gravity.CENTER_VERTICAL; typeface = Typeface.create("sans-serif-medium",Typeface.NORMAL) }
-        voicePanel.addView(speechStatus,LayoutParams(-1,dp(28)))
-        transcript.apply { textSize = 20f; setPadding(dp(16),dp(14),dp(16),dp(14)); minHeight = dp(72); hint = "Speak, then insert. Swipe left to delete a word." }
+        dictation.background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,intArrayOf(0xf70a0a0c.toInt(),0xee0a0a0c.toInt(),0x000a0a0c)).apply { cornerRadius = dp(18).toFloat() }
+        voicePanel.orientation = VERTICAL; voicePanel.setPadding(dp(18),dp(10),dp(14),0)
+        speechStatus.apply { text = "Dictation"; textSize = 12f; gravity = Gravity.CENTER_VERTICAL; setTextColor(0xff9d9da6.toInt()); typeface = Typeface.create("sans-serif-medium",Typeface.NORMAL) }
+        voicePanel.addView(speechStatus,LayoutParams(-1,dp(22)))
+        transcript.apply { textSize = 20f; setTextColor(Color.WHITE); setHintTextColor(0xff7c7c86.toInt()); setPadding(0,dp(2),0,dp(8)); hint = "Speak, then insert. Swipe left to delete a word." }
         var swipeX = 0f
         transcript.setOnTouchListener { _,e -> when(e.actionMasked) { MotionEvent.ACTION_DOWN -> { swipeX = e.x; true }; MotionEvent.ACTION_UP -> { if(e.x-swipeX < -dp(60)) deleteWord(); true }; else -> true } }
-        voicePanel.addView(ScrollView(context).apply { isFillViewport = true; addView(transcript) },LayoutParams(-1,0,1f))
-        voicePanel.addView(voiceButtons,LayoutParams(-1,dp(52)))
+        voicePanel.addView(ScrollView(context).apply { addView(transcript) },LayoutParams(-1,0,1f))
+        voiceButtons.gravity = Gravity.END or Gravity.CENTER_VERTICAL
+        voicePanel.addView(voiceButtons,LayoutParams(-1,dp(46)))
+        voicePanel.addView(View(context),LayoutParams(-1,0,0.8f))
         dictation.addView(voicePanel,FrameLayout.LayoutParams(-1,-1)); body.addView(dictation,FrameLayout.LayoutParams(-1,-1))
-        battery.apply { gravity = Gravity.CENTER; textSize = 10.5f; typeface = Typeface.create("sans-serif-medium",Typeface.NORMAL); contentDescription = "Remote battery unavailable" }
+        battery.apply { gravity = Gravity.CENTER; textSize = 11f; typeface = Typeface.create("sans-serif-medium",Typeface.NORMAL); contentDescription = "Remote battery unavailable" }
         applyTheme(); arrange(true)
     }
     /** Re-read the saved or system appearance and repaint every deck control. Sessions are unaffected. */
     fun refreshTheme() = applyTheme()
     private fun applyTheme() {
         theme = DeckTheme.of(context)
-        setBackgroundColor(theme.deck)
+        background = shape(theme.deck,28)
         keyboard.setTheme(theme)
-        battery.setTextColor(theme.dim)
-        dictation.setBackgroundColor(theme.deck)
-        speechStatus.setTextColor(theme.dim)
-        transcript.setTextColor(theme.label); transcript.setHintTextColor(theme.hint); transcript.background = shape(theme.card,18)
+        battery.setTextColor(theme.onDeck)
         voiceButtons.removeAllViews()
-        fun voiceParams() = LayoutParams(0,-1,1f).apply { setMargins(dp(3),dp(8),dp(3),0) }
-        voiceButtons.addView(control(KeyView.RAIL,"undo","Undo dictation edit","Undo") { cancelVoice(); if (textHistory.isNotEmpty()) { textDraft = textHistory.removeLast(); transcript.text = textDraft } },voiceParams())
-        voiceButtons.addView(control(KeyView.RAIL,"keyboard","Cancel dictation and show keyboard","Keyboard") { closeDictation(); selectKeyboard(true) },voiceParams())
+        fun round(view: View,width: Int = 46) = voiceButtons.addView(view,LayoutParams(dp(width),dp(40)).apply { marginStart = dp(8) })
+        round(control(KeyView.RAIL,"undo","Undo dictation edit") { cancelVoice(); if (textHistory.isNotEmpty()) { textDraft = textHistory.removeLast(); transcript.text = textDraft } })
+        round(control(KeyView.RAIL,"close","Close dictation") { closeDictation() })
         insert = control(KeyView.ACCENT,"return","Insert dictated text into remote app","Insert") {
             if (textDraft.isNotBlank() && ready()) {
                 cancelVoice(); setListening(false)
                 if (remote(15,textDraft)) { setInsertEnabled(false); speechStatus.text = "Inserting…" }
             }
-        }.also { it.isEnabled = insertEnabled; voiceButtons.addView(it,voiceParams()) }
+        }.also { it.isEnabled = insertEnabled; round(it,112) }
         rebuildShortcuts(); updateDock(); pad.invalidate()
         if (wide != null) buildRails()
         appearance()
@@ -130,43 +131,47 @@ class LaptopControls(
     private fun arrange(nowWide: Boolean) {
         if (wide == nowWide) return
         wide = nowWide
-        removeAllViews(); strip.removeAllViews()
-        for (rail in listOf(leading,trailing)) (rail.parent as? ViewGroup)?.removeView(rail)
+        removeAllViews(); center.removeAllViews()
+        for (view in listOf<View>(leading,trailing,body)) (view.parent as? ViewGroup)?.removeView(view)
+        addView(strip,LayoutParams(-1,dp(38)).apply { bottomMargin = dp(8) })
         if (nowWide) {
-            orientation = HORIZONTAL; leading.orientation = VERTICAL; trailing.orientation = VERTICAL
-            addView(leading,LayoutParams(dp(52),-1)); addView(center,LayoutParams(0,-1,1f).apply { setMargins(dp(4),0,dp(4),0) }); addView(trailing,LayoutParams(dp(56),-1))
+            // Short, wide panes keep the keys full height: zoom and overview move to a left
+            // rail, dictation and the mode switch to a right rail.
+            center.orientation = HORIZONTAL; leading.orientation = VERTICAL; trailing.orientation = VERTICAL
+            center.addView(leading,LayoutParams(dp(48),-1)); center.addView(body,LayoutParams(0,-1,1f).apply { setMargins(dp(8),0,dp(8),0) }); center.addView(trailing,LayoutParams(dp(54),-1))
         } else {
-            orientation = VERTICAL; leading.orientation = HORIZONTAL; trailing.orientation = HORIZONTAL
-            strip.addView(HorizontalScrollView(context).apply { isHorizontalScrollBarEnabled = false; addView(leading,FrameLayout.LayoutParams(-2,-1)) },LayoutParams(0,-1,1f))
-            strip.addView(trailing,LayoutParams(-2,-1))
-            addView(strip,LayoutParams(-1,dp(48))); addView(center,LayoutParams(-1,0,1f))
+            center.orientation = VERTICAL; leading.orientation = HORIZONTAL; trailing.orientation = HORIZONTAL
+            val bar = LinearLayout(context).apply { gravity = Gravity.CENTER_VERTICAL; isClickable = true }
+            bar.addView(leading,LayoutParams(-2,-1)); bar.addView(View(context),LayoutParams(0,1,1f)); bar.addView(trailing,LayoutParams(-2,-1))
+            center.addView(body,LayoutParams(-1,0,1f)); center.addView(bar,LayoutParams(-1,dp(50)).apply { topMargin = dp(8) })
         }
+        addView(center,LayoutParams(-1,0,1f))
         buildRails()
     }
     private fun buildRails() {
         val column = wide == true
-        leading.removeAllViews(); trailing.removeAllViews()
-        fun slot(length: Int = 44) = if (column) LayoutParams(-1,dp(length)).apply { setMargins(dp(4),dp(3),dp(4),dp(3)) } else LayoutParams(dp(length),-1).apply { setMargins(dp(3),dp(4),dp(3),dp(4)) }
-        fun spacer() = View(context) to if (column) LayoutParams(-1,0,1f) else LayoutParams(dp(4),-1)
+        leading.removeAllViews(); trailing.removeAllViews(); strip.removeAllViews()
+        (dock.parent as? ViewGroup)?.removeView(dock); (battery.parent as? ViewGroup)?.removeView(battery)
+        fun pill(view: View,last: Boolean = false) = strip.addView(view,LayoutParams(dp(48),dp(34)).apply { if (!last) marginEnd = dp(6) })
         val settings = control(KeyView.RAIL,"settings","Control settings") { settings() }; settingsKey = settings
-        val display = control(KeyView.RAIL,"display","Switch remote display") { displays() }
+        pill(settings); pill(control(KeyView.RAIL,"display","Switch remote display") { displays() })
+        strip.addView(dock,LayoutParams(0,-1,1f).apply { marginEnd = dp(6) })
+        strip.addView(battery,LayoutParams(-2,-1).apply { marginEnd = dp(8) })
+        val brightness = control(KeyView.RAIL,"brightness_up","Remote brightness") { brightness() }; brightnessKey = brightness; pill(brightness)
+        val volume = control(KeyView.RAIL,"volume","Remote volume") { volume() }; volumeKey = volume; pill(volume)
+        pill(control(KeyView.RAIL,"appearance","Switch deck appearance") { cycleAppearance() },true)
+        val zoomKey = control(KeyView.RAIL,"zoom","Zoom the desktop") { if (ready()) zoom() else notice("Connect first") }
         val overview = control(KeyView.RAIL,"overview","Workspaces and open apps") { overview() }
-        val search = control(KeyView.RAIL,"search","Remote launcher") { invoke(14,"launcher") }
-        val volume = control(KeyView.RAIL,"volume","Remote volume") { volume() }; volumeKey = volume
-        val mode = control(KeyView.RAIL,"keyboard","Switch to keyboard") { selectKeyboard(!keyboardSelected) }.apply { vertical = column; textSp = 13f }; modeKey = mode
+        val mode = control(KeyView.RAIL,"keyboard","Switch to keyboard") { selectKeyboard(!keyboardSelected) }.apply { vertical = column; textSp = 13.5f }; modeKey = mode
         val mic = control(KeyView.ACCENT,"mic","Start dictation") { openDictation() }; micKey = mic
         if (column) {
-            for (item in listOf(display,overview,search)) leading.addView(item,slot())
-            spacer().let { leading.addView(it.first,it.second) }
-            leading.addView(battery,LayoutParams(-1,dp(22)))
-            leading.addView(settings,slot())
-            trailing.addView(mic,slot(46)); trailing.addView(mode,LayoutParams(-1,dp(112)).apply { setMargins(dp(4),dp(3),dp(4),dp(3)) })
-            spacer().let { trailing.addView(it.first,it.second) }
-            trailing.addView(volume,slot())
+            fun slot(length: Int) = LayoutParams(-1,dp(length)).apply { bottomMargin = dp(8) }
+            leading.addView(zoomKey,slot(48)); leading.addView(overview,slot(48))
+            trailing.addView(mic,slot(54)); trailing.addView(mode,slot(124))
         } else {
-            for (item in listOf(settings,display,overview,search,volume)) leading.addView(item,slot())
-            leading.addView(battery,LayoutParams(dp(44),-1))
-            trailing.addView(mode,slot(52)); trailing.addView(mic,slot(52))
+            fun slot(length: Int) = LayoutParams(dp(length),-1).apply { setMargins(dp(3),dp(3),dp(3),dp(3)) }
+            leading.addView(zoomKey,slot(56)); leading.addView(overview,slot(56))
+            trailing.addView(mode,slot(136)); trailing.addView(mic,slot(68))
         }
         setListening(listening); updateMode()
     }
@@ -188,11 +193,13 @@ class LaptopControls(
     fun onVoiceResult(value: String,recording: Boolean,error: String?) { textDraft = value; transcript.text = value; setListening(recording); speechStatus.text = error ?: if(recording) "Listening…" else "Dictation"; setInsertEnabled(value.isNotBlank() && desktop?.capabilities?.contains("text") == true) }
     fun insertionFinished(success: Boolean,error: String?) { setInsertEnabled(true); if(success) { textDraft = ""; transcript.text = ""; closeDictation() } else speechStatus.text = error ?: "Text was not inserted" }
     fun hasDictation() = dictation.visibility == VISIBLE
-    fun closeDictation() { cancelVoice(); setListening(false); dictation.visibility = GONE; textDraft = ""; transcript.text = ""; textHistory.clear() }
+    fun closeDictation() { cancelVoice(); setListening(false); dictation.animate().cancel(); dictation.visibility = GONE; textDraft = ""; transcript.text = ""; textHistory.clear() }
     private fun openDictation() {
         if (!ready()) { notice("Connect before dictating"); return }
         if(listening) { cancelVoice(); setListening(false); speechStatus.text = "Dictation"; return }
-        release(); textHistory.clear(); textHistory.addLast(textDraft); transcript.text = textDraft; dictation.visibility = VISIBLE; setInsertEnabled(textDraft.isNotBlank() && desktop?.capabilities?.contains("text") == true); speechStatus.text = "Dictation"; startVoice(textDraft)
+        release(); textHistory.clear(); textHistory.addLast(textDraft); transcript.text = textDraft
+        if (dictation.visibility != VISIBLE) { dictation.visibility = VISIBLE; dictation.alpha = 0f; dictation.translationY = -dp(12).toFloat(); dictation.animate().alpha(1f).translationY(0f).setDuration(180).start() }
+        setInsertEnabled(textDraft.isNotBlank() && desktop?.capabilities?.contains("text") == true); speechStatus.text = "Dictation"; startVoice(textDraft)
     }
     private fun deleteWord() { cancelVoice(); setListening(false); textHistory.addLast(textDraft); if(textHistory.size > 20) textHistory.removeFirst(); textDraft = textDraft.trimEnd().replace(Regex("\\S+\\s*$"),"").trimEnd(); transcript.text = textDraft; speechStatus.text = "Dictation" }
     private fun selectKeyboard(show: Boolean) {
@@ -203,26 +210,27 @@ class LaptopControls(
         // Commit the actual mode independently of animator completion/cancellation.
         leaving.visibility = GONE; leaving.alpha = 1f
         entering.visibility = VISIBLE; entering.alpha = 0f
-        entering.translationY = dp(10).toFloat()
-        entering.animate().translationY(0f).alpha(1f).setDuration(160).start()
+        entering.scaleX = 0.97f; entering.scaleY = 0.97f
+        entering.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(180).start()
         updateMode(); refresh()
     }
     private fun updateMode() {
         modeKey?.apply {
             val target = if (keyboardSelected) "trackpad" else "keyboard"
             icon = DeckIcon(target,resources.displayMetrics.density)
-            label = if (wide == true) target.replaceFirstChar { it.uppercase() } else ""
+            label = target.replaceFirstChar { it.uppercase() }
             contentDescription = "Switch to $target"; tooltipText = contentDescription
         }
     }
+    private fun cycleAppearance() {
+        val next = when (DeckTheme.mode(context)) { DeckTheme.AUTO -> if (theme.dark) DeckTheme.LIGHT else DeckTheme.DARK; DeckTheme.DARK -> DeckTheme.LIGHT; else -> DeckTheme.DARK }
+        preferences.edit().putString("deck_theme",next).apply(); applyTheme()
+    }
+    private fun brightness() { PopupMenu(context,brightnessKey).apply { for((label,kind) in listOf("Brightness up" to 12,"Brightness down" to 13)) menu.add(label).setOnMenuItemClickListener { invoke(kind,"brightness"); true }; show() } }
     private fun settings() {
         PopupMenu(context,settingsKey).apply {
             menu.add("Keyboard layout: ${keyboard.name()}").setOnMenuItemClickListener { keyboard.showSettings(settingsKey); true }
-            val mode = DeckTheme.mode(context)
-            menu.add("Appearance: ${mode.replaceFirstChar { it.uppercase() }}").setOnMenuItemClickListener {
-                val next = when (mode) { DeckTheme.AUTO -> DeckTheme.DARK; DeckTheme.DARK -> DeckTheme.LIGHT; else -> DeckTheme.AUTO }
-                preferences.edit().putString("deck_theme",next).apply(); applyTheme(); true
-            }
+            if (DeckTheme.mode(context) != DeckTheme.AUTO) menu.add("Appearance: follow system").setOnMenuItemClickListener { preferences.edit().remove("deck_theme").apply(); applyTheme(); true }
             menu.add("Fullscreen").setOnMenuItemClickListener { fullscreen(); true }
             menu.add("Refresh open apps").setOnMenuItemClickListener { refresh(); true }
             menu.add("Connection").setOnMenuItemClickListener { connection(); true }
@@ -239,7 +247,7 @@ class LaptopControls(
     private fun chord(code: Int) { if(ready()) { key(29,true,"laptop-shortcut"); key(code,true,"laptop-shortcut"); key(code,false,"laptop-shortcut"); key(29,false,"laptop-shortcut") } }
     private fun rebuildShortcuts() {
         shortcuts.removeAllViews()
-        val gap = (2.5f*resources.displayMetrics.density).toInt()
+        val gap = (3.5f*resources.displayMetrics.density).toInt()
         fun shortcut(glyph: String?,description: String,label: String = "",run: () -> Unit) {
             shortcuts.addView(control(KeyView.KEY,glyph,description,label,run).apply { muted = true; textSp = 11.5f; minimumWidth = dp(40) },LayoutParams(0,-1,1f).apply { setMargins(gap,gap,gap,gap) })
         }
@@ -256,7 +264,7 @@ class LaptopControls(
         if(apps.isEmpty()) {
             dockApps.addView(TextView(context).apply {
                 text = if (desktop == null) "Open apps appear here once connected" else "No open windows"
-                textSize = 12f; setTextColor(theme.hint); gravity = Gravity.CENTER_VERTICAL; setPadding(dp(10),0,dp(10),0)
+                textSize = 12f; setTextColor(theme.onDeck); alpha = 0.75f; gravity = Gravity.CENTER_VERTICAL; setPadding(dp(8),0,dp(8),0)
                 setOnClickListener { refresh() }
             },LayoutParams(-2,-1))
             return
@@ -270,20 +278,20 @@ class LaptopControls(
             val description = if(app.title.isBlank()) name else "$name: ${app.title}"
             val hue = ((name.hashCode()%360)+360)%360
             val chip = LinearLayout(context).apply {
-                gravity = Gravity.CENTER_VERTICAL; setPadding(dp(5),0,dp(12),0); isClickable = true; isFocusable = true
+                gravity = Gravity.CENTER_VERTICAL; setPadding(dp(4),0,dp(12),0); isClickable = true; isFocusable = true
                 contentDescription = description; tooltipText = description
-                background = android.graphics.drawable.RippleDrawable(android.content.res.ColorStateList.valueOf(theme.railDown),shape(theme.rail,13),null)
+                background = android.graphics.drawable.RippleDrawable(android.content.res.ColorStateList.valueOf(theme.railDown),shape(theme.rail,17),null)
                 setOnClickListener { performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY); if(ready()) remote(2,app.address) }
             }
             chip.addView(TextView(context).apply {
                 text = initials.uppercase(); textSize = 11f; gravity = Gravity.CENTER; setTextColor(Color.WHITE); typeface = Typeface.DEFAULT_BOLD
-                background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,intArrayOf(Color.HSVToColor(floatArrayOf(hue.toFloat(),0.5f,0.86f)),Color.HSVToColor(floatArrayOf(hue.toFloat(),0.62f,0.62f)))).apply { cornerRadius = dp(8).toFloat() }
-            },LayoutParams(dp(28),dp(28)))
+                background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,intArrayOf(Color.HSVToColor(floatArrayOf(hue.toFloat(),0.5f,0.86f)),Color.HSVToColor(floatArrayOf(hue.toFloat(),0.62f,0.62f)))).apply { cornerRadius = dp(13).toFloat() }
+            },LayoutParams(dp(26),dp(26)))
             chip.addView(TextView(context).apply {
-                text = shortName; textSize = 12.5f; setTextColor(theme.label); isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END
+                text = shortName; textSize = 12.5f; setTextColor(theme.railIcon); isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END
                 maxWidth = dp(112); setPadding(dp(8),0,0,0); typeface = Typeface.create("sans-serif-medium",Typeface.NORMAL)
             })
-            dockApps.addView(chip,LayoutParams(-2,dp(38)).apply { marginStart = dp(2); marginEnd = dp(4) })
+            dockApps.addView(chip,LayoutParams(-2,dp(34)).apply { marginEnd = dp(6) })
         }
     }
     private fun overview() {

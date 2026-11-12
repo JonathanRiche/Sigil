@@ -15,7 +15,7 @@ The desktop needs a running Hyprland session, `gliff-server` on the remote user'
 
 If the host is sleeping or the network is unavailable, the initial connection retries automatically for up to three minutes. Short TCP/key-exchange attempts replace stale connections, and keyless authentication retries if no response or approval request arrives. A displayed Tailscale approval stays on the same authentication attempt. Cancel stops retries immediately. This waits for reachability; it does not send Wake-on-LAN packets.
 
-Mirroring the existing desktop is the default. Advanced settings retain an optional private screen. The fixed server commands are `gliff-server --stdio --output auto --low-bandwidth` and, for private mode, `gliff-server --stdio --headless --low-bandwidth`. Selecting an existing display reconnects with its validated connector name; it does not reconfigure the host monitor.
+Mirroring the existing desktop is the default. Advanced settings retain an optional private screen. The fixed server commands are `gliff-server --stdio --output auto --low-bandwidth` and, for private mode, `gliff-server --stdio --headless --low-bandwidth`. Window focus and workspace switching work with both the legacy Hyprland dispatch syntax and the Lua syntax required since Hyprland 0.56. Selecting an existing display reconnects with its validated connector name; it does not reconfigure the host monitor.
 
 Conventional SSH key authentication is an advanced option. Imported keys must be unencrypted OpenSSH/PEM keys; the app encrypts its stored copy with Android Keystore. Encrypted input keys, password authentication, ambient SSH agents and automatic host-key replacement are unsupported.
 
@@ -23,7 +23,7 @@ Conventional SSH key authentication is an advanced option. Imported keys must be
 
 - Desktop video, direct touch input, relative pointer controls and explicit text clipboard sharing.
 - Tabletop/Flex layout with desktop above and controls below, plus a manual layout option where posture reporting is unavailable.
-- A keyboard-deck control surface: sculpted keys, icon side rails, a named app dock and an inset trackpad, in graphite or aluminium (follows the system theme, or set it from the deck's settings button). During a live session with the deck open, the top bar is hidden; connection, fullscreen and disconnect are in the deck's settings menu.
+- A keyboard-deck control surface: a rounded panel of sculpted keys in graphite or aluminium (follows the system theme; the half-circle pill switches it). A top strip holds settings, display selection, the open-app dock, brightness, volume and appearance; zoom, overview, dictation and the Keyboard/Trackpad switch sit beside or below the keys. During a live session with the deck open, the top bar is replaced by a small status pill showing the host and frame rate; tap it for connection setup.
 - Standard and Split on-screen US keyboards, saved layout preference and physical keyboard support.
 - New metadata-backed app dock, window focus, workspace navigation/overview, display selection and remote battery status.
 - New remote volume, media, brightness and launcher controls, with unavailable actions reported rather than simulated.
@@ -39,7 +39,7 @@ There is no audio streaming, file/image clipboard, full IME composition, automat
 
 See [BUILDING.md](BUILDING.md) for Linux build instructions using your own toolchains. Android 11/API 30 or newer is required; builds include ARM64 and x86_64.
 
-Download the APK from [GitHub Releases](https://github.com/JonathanRiche/Sigil/releases). Version 0.1.0-preview.3 is explicitly a **debug-signed experimental preview**, not a production build. A future production signing key may require uninstalling this preview, which removes saved app data. Checksums and dependency notices accompany the APK. No production-signing or comprehensive compatibility claim is made.
+Download the APK from [GitHub Releases](https://github.com/JonathanRiche/Sigil/releases). Version 0.1.0-preview.4 is explicitly a **debug-signed experimental preview**, not a production build. A future production signing key may require uninstalling this preview, which removes saved app data. Checksums and dependency notices accompany the APK. No production-signing or comprehensive compatibility claim is made.
 
 ## Upstream and licensing
 

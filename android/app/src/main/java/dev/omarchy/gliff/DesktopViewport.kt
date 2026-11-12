@@ -80,6 +80,8 @@ class DesktopViewport(
         setZoom((zoom*factor).coerceIn(1f,3f),picture.width/2f,picture.height/2f,false)
         panX += dx; panY += dy; applyTransform()
     }
+    /** Step the local zoom from a deck button: fit, 1.6x, 2.4x, then back to fit. */
+    fun toggleZoom() { if (ready()) setZoom(if (zoom < 1.3f) 1.6f else if (zoom < 2f) 2.4f else 1f,picture.width/2f,picture.height/2f,true) }
     fun reset() { animator?.cancel(); slideAnimator?.cancel(); slide = 0f; zoom = 1f; panX = 0f; panY = 0f; applyTransform() }
     private fun applyTransform() {
         val maxX = maxOf(0f,(picture.width*zoom-width)/2); val maxY = maxOf(0f,(picture.height*zoom-height)/2)

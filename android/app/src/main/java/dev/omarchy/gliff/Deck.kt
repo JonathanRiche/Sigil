@@ -18,21 +18,21 @@ import android.widget.Button
 /** Colours for the lower control deck: a graphite or aluminium keyboard surface. Local appearance only. */
 class DeckTheme private constructor(val dark: Boolean) {
     private fun pick(night: Long,day: Long) = (if (dark) night else day).toInt()
-    val deck = pick(0xff060607,0xffa6a9af)
-    val keyTop = pick(0xff29292e,0xfffdfdfe)
-    val keyBottom = pick(0xff1f1f23,0xffe9eaed)
-    val keyDown = pick(0xff17171a,0xffd3d5da)
-    val keyEdge = pick(0xff000000,0xff72767e)
-    val keyShine = pick(0x1cffffff,0xffffffff)
-    val label = pick(0xfff4f4f6,0xff20222a)
-    val dim = pick(0xffa0a0aa,0xff5a5e68)
-    val rail = pick(0xff18181b,0xffbdc0c6)
-    val railDown = pick(0xff2b2b31,0xffd6d8dc)
-    val railIcon = pick(0xffcfcfd7,0xff383b43)
-    val pad = pick(0xff0e0e10,0xffb4b7bd)
-    val padLine = pick(0x30ffffff,0x80ffffff)
-    val hint = pick(0xff6c6c76,0xff6d717a)
-    val card = pick(0xff1a1a1e,0xfff6f6f8)
+    val deck = pick(0xff0c0c0e,0xff9c9b97)
+    val keyTop = pick(0xff262629,0xfff6f5f1)
+    val keyBottom = pick(0xff1c1c1f,0xffe7e6e1)
+    val keyDown = pick(0xff141416,0xffd2d1cc)
+    val keyEdge = pick(0xff000000,0xff7b7a76)
+    val keyShine = pick(0x16ffffff,0xffffffff)
+    val label = pick(0xfff1f1f3,0xff4a494e)
+    val dim = pick(0xff9a9aa2,0xff6b6a6f)
+    val rail = pick(0xff1a1a1d,0xffadaca7)
+    val railDown = pick(0xff2c2c31,0xffc6c5c0)
+    val railIcon = pick(0xffd4d4da,0xfffafaf8)
+    val pad = pick(0xff131315,0xffe6e5e1)
+    val padLine = pick(0x24ffffff,0x99ffffff)
+    val hint = pick(0xff6c6c76,0xff84837e)
+    val onDeck = pick(0xff8c8c96,0xfff2f1ed)
     val accent = 0xff2fc6c8.toInt()
     val accentDown = 0xff249fa1.toInt()
     val onAccent = 0xff04292a.toInt()
@@ -103,6 +103,9 @@ class DeckIcon(kind: String,private val density: Float,tint: Int = 0xffaaaaaa.to
             "right" to "M9.5 6.5l5.5 5.5l-5.5 5.5",
             "up" to "M6.5 14.5l5.5-5.5l5.5 5.5",
             "down" to "M6.5 9.5l5.5 5.5l5.5-5.5",
+            "zoom" to "M11 4a7 7 0 1 0 0 14a7 7 0 0 0 0-14z M16 16l4.5 4.5 M11 8.5v5 M8.5 11h5",
+            "appearance" to "M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18z M12 3v18 M12 7.5h7.7 M12 12h9 M12 16.5h7.7",
+            "close" to "M6.5 6.5l11 11 M17.5 6.5l-11 11",
             "sigil" to "M12 2.5l8 9.5l-8 9.5l-8-9.5z M12 8l3.4 4l-3.4 4l-3.4-4z"
         )
     }
@@ -118,7 +121,7 @@ class KeyDrawable(private val theme: DeckTheme,private val density: Float,privat
     private var gradientTint = 0
     val raised get() = kind == KeyView.KEY || kind == KeyView.ACCENT
     val depth get() = if (raised) 2f*density else 0f
-    var radius = 7f*density
+    var radius = 10f*density
     var lit = false
         set(value) { if (field != value) { field = value; invalidateSelf() } }
     var fill = theme.accent
@@ -132,7 +135,8 @@ class KeyDrawable(private val theme: DeckTheme,private val density: Float,privat
     override fun draw(canvas: Canvas) {
         val b = bounds
         if (b.width() <= 0 || b.height() <= 0) return
-        val r = minOf(radius,b.height()/2f,b.width()/2f)
+        // Keycaps stay rounded rectangles on short rows; rail capsules may round fully.
+        val r = if (kind == KeyView.KEY) minOf(radius,b.height()*0.28f,b.width()/2f) else minOf(radius,b.height()/2f,b.width()/2f)
         if (kind == KeyView.RAIL) {
             paint.shader = null; paint.style = Paint.Style.FILL
             paint.color = if (pressed) theme.railDown else if (lit) theme.railDown else theme.rail
@@ -177,7 +181,7 @@ class KeyDrawable(private val theme: DeckTheme,private val density: Float,privat
 class KeyView(context: Context,private val theme: DeckTheme,private val kind: Int) : View(context) {
     private val density = resources.displayMetrics.density
     private val face = KeyDrawable(theme,density,kind)
-    private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.create("sans-serif-medium",Typeface.NORMAL) }
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.create(if (kind == KEY) "sans-serif" else "sans-serif-medium",Typeface.NORMAL) }
     var label = ""
         set(value) { if (field != value) { field = value; invalidate() } }
     var icon: DeckIcon? = null

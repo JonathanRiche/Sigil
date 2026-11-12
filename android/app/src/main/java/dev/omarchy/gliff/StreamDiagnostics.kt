@@ -43,6 +43,7 @@ class StreamDiagnostics {
     fun output() { outputs.incrementAndGet(); lastOutput = SystemClock.elapsedRealtime() }
     fun ack() { acks.incrementAndGet(); lastAck = SystemClock.elapsedRealtime() }
     fun rendered() { renders.incrementAndGet() }
+    fun renderedCount() = renders.get()
     fun keyframe() { requests.incrementAndGet() }
     fun config(c: StreamConfiguration) {
         configs.incrementAndGet()

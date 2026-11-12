@@ -73,6 +73,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
     private lateinit var idleHint: TextView
     private lateinit var idleAction: TextView
     private lateinit var topBar: LinearLayout
+    private lateinit var livePill: TextView
     private lateinit var diagnosticsLabel: TextView
     private lateinit var tray: LinearLayout
     private lateinit var trayButton: ImageButton
@@ -146,15 +147,14 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = 0xff060607.toInt(); window.navigationBarColor = 0xff060607.toInt()
+        window.statusBarColor = 0xff000000.toInt(); window.navigationBarColor = 0xff000000.toInt()
         keys = ImportedKey(this)
         val root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; background = rootFill }
         root.setOnApplyWindowInsetsListener { view, insets ->
             val bars = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
-            navigationInset = bars.bottom; rootFill.invalidateSelf()
             view.setPadding(bars.left,bars.top,bars.right,bars.bottom); insets
         }
-        val top = LinearLayout(this).apply { gravity = Gravity.CENTER_VERTICAL; setPadding(dp(8),0,dp(2),0); setBackgroundColor(0xff060607.toInt()) }
+        val top = LinearLayout(this).apply { gravity = Gravity.CENTER_VERTICAL; setPadding(dp(8),0,dp(2),0); setBackgroundColor(0xff000000.toInt()) }
         topBar = top
         val chip = LinearLayout(this).apply {
             gravity = Gravity.CENTER_VERTICAL; setPadding(dp(14),0,dp(14),0)
@@ -267,6 +267,14 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
                 setPadding(dp(12),dp(8),dp(12),dp(8)); visibility = View.GONE
             }
             addView(diagnosticsLabel,FrameLayout.LayoutParams(-2,-2,Gravity.TOP or Gravity.CENTER_HORIZONTAL))
+            livePill = TextView(this@MainActivity).apply {
+                textSize = 11.5f; setTextColor(0xfff1f1f3.toInt()); typeface = medium(); gravity = Gravity.CENTER_VERTICAL; isSingleLine = true
+                setPadding(dp(10),0,dp(12),0); compoundDrawablePadding = dp(7); visibility = View.GONE
+                background = pressable(0xb3101012.toInt(),14); isClickable = true; contentDescription = "Session status and connection"
+                setCompoundDrawablesRelative(android.graphics.drawable.GradientDrawable().apply { shape = android.graphics.drawable.GradientDrawable.OVAL; setColor(0xff2fc6c8.toInt()); setBounds(0,0,dp(7),dp(7)) },null,null,null)
+                setOnClickListener { showConnection() }
+            }
+            addView(livePill,FrameLayout.LayoutParams(-2,dp(28),Gravity.TOP or Gravity.END).apply { setMargins(0,dp(8),dp(10),0) })
             addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
                 if (right-left != oldRight-oldLeft || bottom-top != oldBottom-oldTop) {
                     updateFlexLayout(); state.displayed()?.let { fitSurface(it) }
@@ -322,7 +330,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
             startVoice = { seed -> beginDictation(seed) }, cancelVoice = { if(::voice.isInitialized) voice.cancel() },
             viewport = { factor,dx,dy -> desktopViewport.transform(factor,dx,dy) }, notice = { text -> message(text) },
             disconnect = { stopSession("Disconnected") }, fullscreen = { toggleFullscreen() },
-            appearance = { refreshSystemBars() }
+            appearance = { refreshSystemBars() }, zoom = { desktopViewport.toggleZoom() }
         ).apply { visibility = View.GONE }
         display.addView(flexControls,FrameLayout.LayoutParams(-1,0))
         root.addView(display,LinearLayout.LayoutParams(-1,0,1f))
@@ -330,22 +338,23 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         foldObserver = FoldLayoutObserver(this) { posture -> tabletopHinge = posture.horizontalBounds; innerDisplay = posture.inner; reportedTabletop = posture.tabletop; updateFlexLayout() }
         setContentView(root); root.requestApplyInsets(); refreshChrome()
     }
-    private var navigationInset = 0
-    /** Dark app background whose navigation-bar strip continues the control deck when it is open. */
-    private val rootFill = object : android.graphics.drawable.ColorDrawable(0xff060607.toInt()) {
-        private val paint = android.graphics.Paint()
-        override fun draw(canvas: android.graphics.Canvas) {
-            super.draw(canvas)
-            if (flexActive && navigationInset > 0) {
-                paint.color = DeckTheme.of(this@MainActivity).deck
-                canvas.drawRect(0f,(bounds.bottom-navigationInset).toFloat(),bounds.right.toFloat(),bounds.bottom.toFloat(),paint)
-            }
+    private val rootFill = android.graphics.drawable.ColorDrawable(0xff000000.toInt())
+    private fun refreshSystemBars() = Unit
+    private var liveMetrics: StreamDiagnostics? = null
+    private var liveFrames = 0L
+    private var liveStamp = 0L
+    private var liveTicking = false
+    /** Once a second, refresh the frame rate shown in the pill over a live desktop. */
+    private val liveTick = object : Runnable {
+        override fun run() {
+            liveTicking = false
+            if (!::livePill.isInitialized || livePill.visibility != View.VISIBLE || isDestroyed) return
+            val now = android.os.SystemClock.elapsedRealtime(); val frames = liveMetrics?.renderedCount() ?: 0L
+            val fps = if (liveStamp == 0L || now <= liveStamp) 0 else ((frames-liveFrames)*1000/(now-liveStamp)).toInt().coerceAtLeast(0)
+            liveFrames = frames; liveStamp = now
+            livePill.text = "$activeSessionLabel  ·  $fps fps"
+            liveTicking = true; ui.postDelayed(this,1000)
         }
-    }
-    private fun refreshSystemBars() {
-        rootFill.invalidateSelf()
-        val light = flexActive && !DeckTheme.of(this).dark
-        window.peekDecorView()?.windowInsetsController?.setSystemBarsAppearance(if (light) WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS else 0,WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS)
     }
     private fun refreshChrome() {
         if (!::sessionLabel.isInitialized) return
@@ -367,7 +376,10 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         // With the control deck open, a live session takes the whole upper pane. Connection,
         // fullscreen and disconnect stay reachable from the deck's settings button. Keyed on
         // session readiness, not the transition cover, so a resize cannot toggle it repeatedly.
-        topBar.visibility = if (flexActive && ready && !localTest) View.GONE else View.VISIBLE
+        val immersive = flexActive && ready && !localTest
+        topBar.visibility = if (immersive) View.GONE else View.VISIBLE
+        livePill.visibility = if (immersive && cover.visibility != View.VISIBLE) View.VISIBLE else View.GONE
+        if (livePill.visibility == View.VISIBLE && !liveTicking) { liveStamp = 0L; livePill.text = activeSessionLabel; liveTicking = true; ui.postDelayed(liveTick,1000) }
         diagnosticsLabel.visibility = if (localTest && running.get()) View.VISIBLE else View.GONE
         refreshSetupState()
     }
@@ -505,7 +517,7 @@ class MainActivity : Activity(), SurfaceHolder.Callback {
         localTest = false; connectionDialog?.dismiss(); surface.requestFocus(); cover.visibility = View.VISIBLE; cursorOverlay.reset(); pointerKnown = false; lastPointerCommandMs = 0; refreshChrome()
         message("Connecting…",token)
         val initialWidth = display.width; val initialHeight = desktopHeight()
-        val metrics = StreamDiagnostics().apply { start() }
+        val metrics = StreamDiagnostics().apply { start() }; liveMetrics = metrics
         val cursors = CursorUpdates(cursorOverlay,{ state.current(token) }) { x,y,visible ->
             if (visible && android.os.SystemClock.elapsedRealtime()-lastPointerCommandMs > 150) {
                 pointerGeometry = state.displayed(); pointerX = x; pointerY = y; pointerKnown = true

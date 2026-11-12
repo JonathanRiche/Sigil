@@ -24,6 +24,12 @@ if not selected and len(instances)==1: selected=instances
 if len(selected)!=1: raise RuntimeError('ambiguous or missing compositor session')
 os.environ['HYPRLAND_INSTANCE_SIGNATURE']=selected[0]['instance']
 os.environ['WAYLAND_DISPLAY']=selected[0]['wl_socket']
+def focus(field,value):
+ # Hyprland 0.56+ takes Lua dispatch calls and rejects the legacy form with a
+ # nonzero status; older releases only know the legacy form. Values are
+ # validated literals (hex address, decimal id or fixed e-1/e+1), never free text.
+ try: run(['hyprctl','dispatch',{'window':'focuswindow','workspace':'workspace'}[field],value])
+ except RuntimeError: run(['hyprctl','dispatch','hl.dsp.focus({ %s = "%s" })'%(field,value)])
 kind=int(sys.argv[1]); identity=sys.argv[2] if len(sys.argv)>2 else ''
 if kind==1:
  clients=query('clients'); outputs=query('monitors'); workspaces=query('workspaces')
@@ -45,12 +51,12 @@ if kind==1:
  sys.stdout.buffer.write(encoded)
 elif kind==2:
  if identity not in [c['address'] for c in query('clients') if c.get('mapped')]: raise RuntimeError('window no longer exists')
- run(['hyprctl','dispatch','focuswindow','address:'+identity])
-elif kind in (3,4): run(['hyprctl','dispatch','workspace','e-1' if kind==3 else 'e+1'])
+ focus('window','address:'+identity)
+elif kind in (3,4): focus('workspace','e-1' if kind==3 else 'e+1')
 elif kind==5:
  if int(identity) not in [w['id'] for w in query('workspaces')]: raise RuntimeError('workspace no longer exists')
  if int(identity)<1: raise RuntimeError('special workspace selection unsupported')
- run(['hyprctl','dispatch','workspace',identity])
+ focus('workspace',identity)
 elif kind in (6,7,8): run(['omarchy-audio-output-volume',{6:'raise',7:'lower',8:'mute-toggle'}[kind]])
 elif kind in (9,10,11): run(['omarchy-shell','media',{9:'playPause',10:'next',11:'previous'}[kind]])
 elif kind in (12,13): run(['omarchy-brightness-display','+5%' if kind==12 else '5%-'])

@@ -19,7 +19,7 @@ class LaptopKeyboard(
     private val letterViews = HashMap<KeyView,String>()
     private var fn = false
     private var preview: PopupWindow? = null
-    private val gap get() = (2.5f*resources.displayMetrics.density).toInt()
+    private val gap get() = (3.5f*resources.displayMetrics.density).toInt()
     private fun dp(n: Int) = (n*resources.displayMetrics.density).toInt()
     init { orientation = VERTICAL; isClickable = true; build() }
     fun name() = if (split) "Split" else "Standard"
@@ -59,7 +59,7 @@ class LaptopKeyboard(
     private fun button(label: String,code: Int,glyph: String? = null): KeyView = KeyView(context,theme,KeyView.KEY).apply {
         val character = label.length == 1 && glyph == null
         if (glyph != null) icon = DeckIcon(glyph,resources.displayMetrics.density) else this.label = label
-        textSp = if (character) 17f else 11.5f; muted = !character
+        textSp = if (character) 18f else 11.5f; muted = !character
         contentDescription = describe(label,code)
         if (code == -2) lit = fn
         if (code in listOf(29,42,56,100,125,126)) modifierViews.getOrPut(code) { ArrayList() }.add(this)
